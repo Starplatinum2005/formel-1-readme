@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
-import "../routes/startseite/startseite.css";
+
+
 
 export default function Header(){
     return(
