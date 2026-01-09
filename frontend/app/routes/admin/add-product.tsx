@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./add-product.css";
 
+// Definiere die verfügbaren Kategorien
+const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
+
 export default function AddProduct() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [category, setCategory] = useState(CATEGORIES[0]); // Standardwert
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -14,6 +18,7 @@ export default function AddProduct() {
       name,
       description,
       price: parseFloat(price),
+      category, // Die gewählte Kategorie mitschicken
     };
 
     try {
@@ -27,10 +32,11 @@ export default function AddProduct() {
       });
 
       if (response.ok) {
-        setMessage("Produkt erfolgreich hinzugefügt!");
+        setMessage(`Erfolg: Produkt in '${category}' gespeichert!`);
         setName("");
         setDescription("");
         setPrice("");
+        setCategory(CATEGORIES[0]);
       } else {
         setMessage("Fehler: Nur Admins dürfen das.");
       }
@@ -66,6 +72,23 @@ export default function AddProduct() {
           onChange={(e) => setPrice(e.target.value)}
           required
         />
+
+        {/* Neues Dropdown-Menü für Kategorien */}
+        <div className="category-select-wrapper">
+          <label htmlFor="category">Kategorie:</label>
+          <select
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="admin-select"
+          >
+            {CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <button type="submit">Produkt speichern</button>
       </form>

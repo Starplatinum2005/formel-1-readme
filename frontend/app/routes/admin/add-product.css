@@ -79,6 +79,47 @@
     color: #ccc;
 }
 
+/* Styling für das Kategorie-Auswahlfeld */
+.category-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.category-select-wrapper label {
+    font-size: 0.85rem;
+    color: #888;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+
+.admin-select {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none; /* Entfernt Standard-Browser-Pfeil */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.admin-select:focus {
+    outline: none;
+    border-color: #e30613;
+    box-shadow: 0 0 0 2px rgba(227,6,19,0.3);
+}
+
+/* Option-Felder Styling (wird je nach Browser unterschiedlich angezeigt) */
+.admin-select option {
+    background: #1a1a1a;
+    color: white;
+}
+
 /* Große Bildschirme */
 @media (min-width: 1600px) {
     .admin-container {
