@@ -82,5 +82,12 @@
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
     "createdAt": "2026-01-09T15:14:29.109Z"
+  },
+  {
+    "id": "a8d9a66c-3b15-44f5-bd41-1552d5e5c274",
+    "name": "HAusschuhe",
+    "description": "die stinken",
+    "price": 100000,
+    "createdAt": "2026-01-09T15:38:02.197Z"
   }
 ]

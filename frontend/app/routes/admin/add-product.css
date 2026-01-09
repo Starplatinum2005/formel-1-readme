@@ -1,0 +1,88 @@
+/* Grundlayout */
+.admin-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Titel */
+.admin-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #e30613;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+/* Formular */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs & Textarea */
+.admin-form input,
+.admin-form textarea {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.admin-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+    outline: none;
+    border-color: #e30613;
+    box-shadow: 0 0 0 2px rgba(227,6,19,0.3);
+}
+
+/* Button */
+.admin-form button {
+    margin-top: 10px;
+    padding: 14px;
+    background: linear-gradient(135deg, #e30613, #ff0000);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(227,6,19,0.5);
+}
+
+/* Statusmeldung */
+.admin-message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #ccc;
+}
+
+/* Große Bildschirme */
+@media (min-width: 1600px) {
+    .admin-container {
+        max-width: 600px;
+        padding: 40px;
+    }
+}

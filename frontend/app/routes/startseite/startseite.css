@@ -1,17 +1,4 @@
-:root{
-  --bg:#0b0b0f;
-  --panel:#101018;
-  --card:#12121c;
-  --text:#f5f5f7;
-  --muted:#a6a6b3;
-  --line:rgba(255,255,255,.10);
-  --red:#e10600;
-  --red2:#ff2a1a;
-  --white:#ffffff;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
-  --radius: 18px;
-  --radius2: 26px;
-}
+
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
