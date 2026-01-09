@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
 import { CreateProductDto } from './dto/create-product.dto';
 
 @Injectable()
 export class ProductsService {
-  // Pfad zu deiner JSON-Datei (muss im Hauptordner existieren)
+
   private readonly dbPath = './products.json'; 
 
 private readData() {
@@ -38,6 +38,18 @@ private readData() {
 
     return newProduct;
   }
+
+  delete(id: string) {
+  const products = this.readData();
+  const filteredProducts = products.filter(p => p.id !== id);
+  
+  if (products.length === filteredProducts.length) {
+    throw new NotFoundException(`Produkt mit ID ${id} nicht gefunden`);
+  }
+  
+  this.writeData(filteredProducts);
+  return { deleted: true };
+}
 
   // A1: CRUD - Read Operation
   findAll() {

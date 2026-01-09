@@ -1,6 +1,16 @@
 [
   {
-    "id": "19ab3891-0e0e-4b9b-abf6-025fd1181cca",
-    "createdAt": "2026-01-09T12:56:15.333Z"
+    "id": "92ffd6dd-8a14-4f07-8a7b-8878e420aa87",
+    "name": "Apex Racing Handschuhe",
+    "description": "Feuerfest und mit Grip",
+    "price": 89.99,
+    "createdAt": "2026-01-09T14:06:26.259Z"
+  },
+  {
+    "id": "a40d257b-4610-4b7f-b923-cada171e85e6",
+    "name": "Apex Racing Handschuhe",
+    "description": "Feuerfest und mit Grip",
+    "price": 89.99,
+    "createdAt": "2026-01-09T14:08:11.060Z"
   }
 ]
