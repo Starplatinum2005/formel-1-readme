@@ -26,8 +26,8 @@ code{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.page{ min-height:100vh; display:flex; flex-direction:column; }
-.container{ width:min(1120px, calc(100% - 40px)); margin:0 auto; }
+.page{ min-height:100vh; display:flex; flex-direction:column;/*background: var(--bg);*/ }
+/*.container{ width:min(1120px, calc(100% - 40px)); margin:0 auto; }*/
 
 .skip{
   position:absolute; left:-999px; top:10px;
@@ -256,12 +256,7 @@ code{
 .link--light{ color: rgba(255,255,255,.92); }
 
 .grid{ display:grid; gap:14px; }
-.grid--news{ grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 1020px){ .grid--news{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px){ .grid--news{ grid-template-columns: 1fr; } }
 
-.grid--shop{ grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 900px){ .grid--shop{ grid-template-columns: 1fr; } }
 
 .card{
   background: rgba(255,255,255,.03);
