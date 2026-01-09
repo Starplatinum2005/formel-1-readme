@@ -351,6 +351,8 @@ code{
   gap:14px;
   flex-wrap:wrap;
   box-shadow: var(--shadow);
+  width: calc(100% - (var(--padX) * 2));
+  margin-inline: auto;
 }
 .cta__actions{ display:flex; gap:12px; flex-wrap:wrap; }
 
