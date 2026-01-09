@@ -6,15 +6,14 @@ interface Product {
   name: string;
   description: string;
   price: number;
-  category: string; // 1. Interface erweitert
+  category: string;
+  image?: string;
 }
 
-// Kategorien identisch zum Admin-Bereich
-const CATEGORIES = ["Alle", "Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
+const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
 
 export default function ShopPage() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState("Alle"); // 2. Filter-State
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -27,44 +26,52 @@ export default function ShopPage() {
       .catch((err) => setError(err.message));
   }, []);
 
-  // 3. Filter-Logik
-  const filteredProducts = selectedCategory === "Alle" 
-    ? products 
-    : products.filter(p => p.category === selectedCategory);
-
-  return (
+return (
     <div className="shop-container">
       <h1>Apex League Shop</h1>
       
-      {/* 4. Filter-Buttons */}
-      <div className="filter-bar">
-        {CATEGORIES.map(cat => (
-          <button 
-            key={cat} 
-            className={`filter-button ${selectedCategory === cat ? "active" : ""}`}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
       {error && <p className="error-msg">{error}</p>}
 
-      <div className="product-grid">
-        {filteredProducts.length === 0 && !error && <p>Keine Produkte in dieser Kategorie gefunden.</p>}
-        
-        {filteredProducts.map((product) => (
-          <div key={product.id} className="product-card">
-            {/* Kategorie-Label anzeigen */}
-            <span className="category-badge">{product.category}</span>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <div className="price-tag">{product.price.toFixed(2)} €</div>
-            <button className="buy-button">In den Warenkorb</button>
+      {/* Wir gehen jede Kategorie einzeln durch */}
+      {CATEGORIES.map((cat) => {
+        const categoryProducts = products.filter(p => p.category === cat);
+
+        if (categoryProducts.length === 0) return null;
+
+        return (
+          <div key={cat} className="category-section">
+            <h2 className="category-title">{cat}</h2>
+            <div className="product-grid">
+              {categoryProducts.map((product) => (
+                <div key={product.id} className="product-card">
+                  
+                  {/* --- BILD-BEREICH ANFANG --- */}
+                  {product.image && (
+                    <div className="product-image-container">
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        className="product-image" 
+                        onError={(e) => (e.currentTarget.style.display = 'none')} 
+                      />
+                    </div>
+                  )}
+                  {/* --- BILD-BEREICH ENDE --- */}
+
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <div className="price-tag">{product.price.toFixed(2)} €</div>
+                  <button className="buy-button">In den Warenkorb</button>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        );
+      })}
+
+      {products.length === 0 && !error && (
+        <p className="no-products">Aktuell sind keine Produkte verfügbar.</p>
+      )}
     </div>
   );
 }
