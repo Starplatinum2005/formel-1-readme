@@ -1,7 +1,7 @@
 /* Container */
 .shop-container {
     padding: 40px 20px;
-    max-width: 1200px;
+    max-width: 1600px; /* Für große Bildschirme erweitert */
     margin: 0 auto;
     background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
     color: #f5f5f5;
@@ -11,26 +11,19 @@
 /* Überschrift */
 .shop-container h1 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 3vw, 3rem); /* Skalierbare Schriftgröße */
     margin-bottom: 40px;
     color: #e30613;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-/* Fehlermeldung */
-.error-msg {
-    color: #ff4d4d;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 /* Grid für Produkte */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    /* auto-fit sorgt dafür, dass sich die Karten an den verfügbaren Platz anpassen */
 }
 
 /* Produktkarten */
@@ -43,6 +36,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Hover-Effekt */
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.7);
@@ -50,14 +44,14 @@
 
 /* Produktname */
 .product-card h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     margin-bottom: 10px;
     color: #ffffff;
 }
 
 /* Produktbeschreibung */
 .product-card p {
-    font-size: 0.95rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     line-height: 1.4;
     color: #ccc;
     margin-bottom: 15px;
@@ -66,7 +60,7 @@
 /* Preis */
 .price-tag {
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
     color: #e30613;
     margin-bottom: 20px;
 }
@@ -81,7 +75,7 @@
     cursor: pointer;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 1.2vw, 1rem);
     text-transform: uppercase;
     transition: background 0.3s, transform 0.2s;
 }
@@ -95,6 +89,19 @@
 .product-grid p {
     grid-column: 1 / -1;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     color: #bbb;
+}
+
+/* Media Queries für sehr große Bildschirme */
+@media (min-width: 1800px) {
+    .shop-container {
+        padding: 60px 40px;
+    }
+    .product-grid {
+        gap: 30px;
+    }
+    .product-card {
+        padding: 25px;
+    }
 }
