@@ -1,16 +1,23 @@
 [
   {
-    "id": "92ffd6dd-8a14-4f07-8a7b-8878e420aa87",
-    "name": "Apex Racing Handschuhe",
-    "description": "Feuerfest und mit Grip",
-    "price": 89.99,
-    "createdAt": "2026-01-09T14:06:26.259Z"
+    "id": "b9bd33d8-ee0d-45b5-8403-d680b25b2c68",
+    "name": "Apex Racing Lenkrad",
+    "description": "Force Feedback Lenkrad für Profis",
+    "price": 299,
+    "createdAt": "2026-01-09T14:32:05.521Z"
   },
   {
-    "id": "a40d257b-4610-4b7f-b923-cada171e85e6",
+    "id": "de1fd2a4-7a56-4410-a0f6-086fbd57fef5",
     "name": "Apex Racing Handschuhe",
-    "description": "Feuerfest und mit Grip",
-    "price": 89.99,
-    "createdAt": "2026-01-09T14:08:11.060Z"
+    "description": "Force Feedback Lenkrad für Profis",
+    "price": 299,
+    "createdAt": "2026-01-09T14:32:15.025Z"
+  },
+  {
+    "id": "2333572f-5df0-4db0-b4f8-9afda069fec3",
+    "name": "Apex Racing Schuhe",
+    "description": "Force Feedback Lenkrad für Profis",
+    "price": 299,
+    "createdAt": "2026-01-09T14:32:20.978Z"
   }
 ]
