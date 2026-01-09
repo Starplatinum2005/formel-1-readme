@@ -6,13 +6,17 @@ interface Product {
   name: string;
   description: string;
   price: number;
+  category: string; // 1. Interface erweitert
 }
+
+// Kategorien identisch zum Admin-Bereich
+const CATEGORIES = ["Alle", "Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
 
 export default function ShopPage() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState("Alle"); // 2. Filter-State
   const [error, setError] = useState<string | null>(null);
 
-  // 1. Daten beim Laden der Seite vom Server holen
   useEffect(() => {
     fetch("http://localhost:3000/products")
       .then((response) => {
@@ -23,20 +27,40 @@ export default function ShopPage() {
       .catch((err) => setError(err.message));
   }, []);
 
+  // 3. Filter-Logik
+  const filteredProducts = selectedCategory === "Alle" 
+    ? products 
+    : products.filter(p => p.category === selectedCategory);
+
   return (
     <div className="shop-container">
       <h1>Apex League Shop</h1>
       
+      {/* 4. Filter-Buttons */}
+      <div className="filter-bar">
+        {CATEGORIES.map(cat => (
+          <button 
+            key={cat} 
+            className={`filter-button ${selectedCategory === cat ? "active" : ""}`}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       {error && <p className="error-msg">{error}</p>}
 
       <div className="product-grid">
-        {products.length === 0 && !error && <p>Keine Produkte gefunden.</p>}
+        {filteredProducts.length === 0 && !error && <p>Keine Produkte in dieser Kategorie gefunden.</p>}
         
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <div key={product.id} className="product-card">
+            {/* Kategorie-Label anzeigen */}
+            <span className="category-badge">{product.category}</span>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <div className="price-tag">{product.price} €</div>
+            <div className="price-tag">{product.price.toFixed(2)} €</div>
             <button className="buy-button">In den Warenkorb</button>
           </div>
         ))}

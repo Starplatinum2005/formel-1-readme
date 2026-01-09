@@ -4,90 +4,111 @@
     "name": "Apex Racing Lenkrad",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 299,
-    "createdAt": "2026-01-09T14:32:05.521Z"
+    "createdAt": "2026-01-09T14:32:05.521Z",
+    "category": "Fahrzeuge"
   },
   {
     "id": "de1fd2a4-7a56-4410-a0f6-086fbd57fef5",
     "name": "Apex Racing Handschuhe",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 299,
-    "createdAt": "2026-01-09T14:32:15.025Z"
+    "createdAt": "2026-01-09T14:32:15.025Z",
+    "category": "Fahrzeuge"
   },
   {
     "id": "2333572f-5df0-4db0-b4f8-9afda069fec3",
     "name": "Apex Racing Schuhe",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 299,
-    "createdAt": "2026-01-09T14:32:20.978Z"
+    "createdAt": "2026-01-09T14:32:20.978Z",
+    "category": "Fahrzeuge"
   },
   {
     "id": "96115ffd-fac4-4640-a436-f37f7c93feee",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:04:05.811Z"
+    "createdAt": "2026-01-09T15:04:05.811Z",
+    "category": "Ausrüstung"
   },
   {
     "id": "1ea79ea9-56c8-4735-a92a-3234bcec2863",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:22.669Z"
+    "createdAt": "2026-01-09T15:14:22.669Z",
+    "category": "Ausrüstung"
   },
   {
     "id": "3871872a-3cb9-4804-972b-0ae3645b98f3",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:23.935Z"
+    "createdAt": "2026-01-09T15:14:23.935Z",
+    "category": "Ausrüstung"
   },
   {
     "id": "f013f3b4-946d-4733-a87d-177ac2ee9c40",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:25.158Z"
+    "createdAt": "2026-01-09T15:14:25.158Z",
+    "category": "Ausrüstung"
   },
   {
     "id": "3e6e7b0c-dc14-4119-adcd-bce658d64640",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:26.049Z"
+    "createdAt": "2026-01-09T15:14:26.049Z",
+    "category": "Merchandise"
   },
   {
     "id": "32316bbd-30d1-4688-905c-f44a6b15b47e",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:26.893Z"
+    "createdAt": "2026-01-09T15:14:26.893Z",
+    "category": "Merchandise"
   },
   {
     "id": "c88b78a3-12d1-4ec1-a25a-e91cc89c7462",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:27.609Z"
+    "createdAt": "2026-01-09T15:14:27.609Z",
+    "category": "Merchandise"
   },
   {
     "id": "066fac25-1041-472a-b334-6dc88a7ee6f3",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:28.343Z"
+    "createdAt": "2026-01-09T15:14:28.343Z",
+    "category": "Merchandise"
   },
   {
     "id": "83f08b0f-9814-4f6e-8350-30beb25158d5",
     "name": "Apex Racing Helm",
     "description": "Force Feedback Lenkrad für Profis",
     "price": 5000,
-    "createdAt": "2026-01-09T15:14:29.109Z"
+    "createdAt": "2026-01-09T15:14:29.109Z",
+    "category": "Hardware"
   },
   {
     "id": "a8d9a66c-3b15-44f5-bd41-1552d5e5c274",
     "name": "HAusschuhe",
     "description": "die stinken",
     "price": 100000,
-    "createdAt": "2026-01-09T15:38:02.197Z"
+    "createdAt": "2026-01-09T15:38:02.197Z",
+    "category": "Hardware"
+  },
+  {
+    "id": "71c9f3a3-3e67-4ea8-9add-16d47b2cc514",
+    "name": "Stefan",
+    "description": "fAGGG",
+    "price": 0.05,
+    "category": "Merchandise",
+    "createdAt": "2026-01-09T16:30:35.396Z"
   }
 ]
