@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
     return (
         <header className="header">
             <h1>Apex Tracks</h1>
