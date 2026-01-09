@@ -34,17 +34,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <nav>
-        <Header/>
-      </nav>
+
       <body>
-        {children}
+        <header>
+          <Header />
+        </header>
+
+        <main>{children}</main>
+
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
 }
+
 
 export default function App() {
   return <Outlet />;
