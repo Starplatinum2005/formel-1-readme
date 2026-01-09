@@ -1,0 +1,58 @@
+:root {
+  --containerMax: 1120px;
+  --padX: clamp(14px, 4vw, 28px);
+  --padY: clamp(14px, 3vw, 22px);
+  --touchMin: 44px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Makes your existing .container fluid everywhere */
+.container {
+  width: min(var(--containerMax), calc(100% - (var(--padX) * 2)));
+  margin-inline: auto;
+}
+
+/* Auto-fit grids for pages that use these classes */
+.grid--news {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+}
+.grid--shop {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+}
+
+/* Tap targets */
+.btn,
+.nav__link,
+.iconBtn,
+.drawer__link {
+  min-height: var(--touchMin);
+}
+
+/* No ugly overflow on tiny screens */
+h1, h2, h3, p, a {
+  overflow-wrap: anywhere;
+}
+
+/* Small-screen fix for known pattern */
+@media (max-width: 420px) {
+  .trackcard { flex-direction: column; align-items: flex-start; }
+  .trackcard__right { align-items: flex-start; min-width: auto; }
+}
+
+/* Nice default section spacing */
+.section {
+  padding-block: clamp(18px, 4vw, 38px) !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
