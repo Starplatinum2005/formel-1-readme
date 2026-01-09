@@ -1,17 +1,26 @@
 header {
-  background-color: #c51f1f;
+  background-color: #ba1818;
   color: #ecf0f1;
-  padding: 20px;
-  text-align: center;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin: 0;
 }
 
 header nav {
-  margin-top: 10px;
+  margin-top: 0;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 header nav a {
