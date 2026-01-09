@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ProductsModule } from './products/products.module'; // Pfad prüfen
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ProductsModule], // <--- Das muss hier drin stehen!
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
