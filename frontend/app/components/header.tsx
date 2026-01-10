@@ -8,7 +8,8 @@ export default function Header(){
         <header className="header">
         <div className="container header__inner">
           <div className="brand">
-            <div className="brand__mark" aria-hidden="true" />
+            {/*<div className="brand__mark" aria-hidden="true" />*/}
+            <img src="./../../public/logo1.png" alt="Logo" className="brand_logo" />
             <div className="brand__text">
               <div className="brand__name">Apex Tracks</div>
               <div className="brand__tag">Track Profiles • Reviews • Gear</div>
