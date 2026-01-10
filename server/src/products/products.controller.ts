@@ -1,18 +1,17 @@
 import { Controller, Get, Post, Body, HttpCode, HttpStatus, Delete, Param } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
-// Oben bei den Imports hinzufügen:
 import { UseGuards } from '@nestjs/common';
 import { RolesGuard } from './roles.guard';
 
 @Controller('products')
-@UseGuards(RolesGuard) // <--- Schützt alle Routen in diesem Controller
+@UseGuards(RolesGuard)
 export class ProductsController {
 
   constructor(private readonly productsService: ProductsService) {}
 
   @Post()
-  @HttpCode(HttpStatus.CREATED) // Gibt 201 zurück 
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
   }
