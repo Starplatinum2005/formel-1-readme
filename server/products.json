@@ -87,22 +87,8 @@
     "createdAt": "2026-01-09T15:14:28.343Z",
     "category": "Merchandise"
   },
-  {
-    "id": "83f08b0f-9814-4f6e-8350-30beb25158d5",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
-    "createdAt": "2026-01-09T15:14:29.109Z",
-    "category": "Hardware"
-  },
-  {
-    "id": "a8d9a66c-3b15-44f5-bd41-1552d5e5c274",
-    "name": "HAusschuhe",
-    "description": "die stinken",
-    "price": 100000,
-    "createdAt": "2026-01-09T15:38:02.197Z",
-    "category": "Hardware"
-  },
+
+
   {
     "id": "71c9f3a3-3e67-4ea8-9add-16d47b2cc514",
     "name": "Stefan",
@@ -110,5 +96,22 @@
     "price": 0.05,
     "category": "Merchandise",
     "createdAt": "2026-01-09T16:30:35.396Z"
+  },
+  {
+    "id": "5d04cac2-e090-4b2e-9ef0-25a7715b3bd6",
+    "name": "Stefan2",
+    "description": "oaöf",
+    "price": 234,
+    "category": "Merchandise",
+    "createdAt": "2026-01-09T21:19:28.415Z"
+  },
+  {
+    "id": "e22a60c3-9276-45dd-9bed-3c600930ee79",
+    "name": "Auto",
+    "description": "Auto",
+    "price": 100000,
+    "category": "Fahrzeuge",
+    "image": "https://tse1.mm.bing.net/th/id/OIP.NEY944zI064X0N8TOq1YggHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "createdAt": "2026-01-09T21:34:49.296Z"
   }
 ]

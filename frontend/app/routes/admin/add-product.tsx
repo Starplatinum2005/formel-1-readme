@@ -10,6 +10,7 @@ export default function AddProduct() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState(CATEGORIES[0]); // Standardwert
   const [message, setMessage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +19,8 @@ export default function AddProduct() {
       name,
       description,
       price: parseFloat(price),
-      category, // Die gewählte Kategorie mitschicken
+      category,
+      image: imageUrl,
     };
 
     try {
@@ -36,6 +38,7 @@ export default function AddProduct() {
         setName("");
         setDescription("");
         setPrice("");
+        setImageUrl("");
         setCategory(CATEGORIES[0]);
       } else {
         setMessage("Fehler: Nur Admins dürfen das.");
@@ -71,6 +74,12 @@ export default function AddProduct() {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           required
+        />
+
+        <input
+          placeholder="Bild-URL (z.B. https://...)"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
 
         {/* Neues Dropdown-Menü für Kategorien */}
