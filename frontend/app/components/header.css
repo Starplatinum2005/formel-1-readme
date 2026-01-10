@@ -15,7 +15,10 @@
   padding:14px 1vw;
   gap:16px;
 }
-
+.brand_logo{
+  width: 2.375rem;
+  height: 2.375rem;
+}
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand__mark{
   width:38px; height:38px; border-radius:14px;
