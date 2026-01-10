@@ -27,9 +27,10 @@
     gap: 15px;
 }
 
-/* Inputs & Textarea */
+/* Gemeinsames Styling für Inputs, Textarea und Select */
 .admin-form input,
-.admin-form textarea {
+.admin-form textarea,
+.admin-select {
     background: #111;
     border: 1px solid #333;
     border-radius: 6px;
@@ -37,6 +38,7 @@
     color: #fff;
     font-size: 1rem;
     transition: border 0.2s, box-shadow 0.2s;
+    width: 100%;
 }
 
 .admin-form textarea {
@@ -44,16 +46,44 @@
     min-height: 100px;
 }
 
+/* Fokus-Effekte */
 .admin-form input:focus,
-.admin-form textarea:focus {
+.admin-form textarea:focus,
+.admin-select:focus {
     outline: none;
     border-color: #e30613;
     box-shadow: 0 0 0 2px rgba(227,6,19,0.3);
 }
 
+/* Kategorie-Wrapper & Label */
+.category-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.category-select-wrapper label {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Spezielles Styling für das Select-Feld */
+.admin-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
 /* Button */
 .admin-form button {
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 14px;
     background: linear-gradient(135deg, #e30613, #ff0000);
     border: none;
@@ -76,51 +106,18 @@
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
-    color: #ccc;
+    color: #00ff00; /* Erfolg in Grün */
+    padding: 10px;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 4px;
 }
 
-/* Styling für das Kategorie-Auswahlfeld */
-.category-select-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+/* Falls Fehler auftreten, könnte man diese Klasse nutzen */
+.admin-message.error {
+    color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.1);
 }
 
-.category-select-wrapper label {
-    font-size: 0.85rem;
-    color: #888;
-    margin-left: 5px;
-    text-transform: uppercase;
-}
-
-.admin-select {
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 6px;
-    padding: 12px;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    appearance: none; /* Entfernt Standard-Browser-Pfeil */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-}
-
-.admin-select:focus {
-    outline: none;
-    border-color: #e30613;
-    box-shadow: 0 0 0 2px rgba(227,6,19,0.3);
-}
-
-/* Option-Felder Styling (wird je nach Browser unterschiedlich angezeigt) */
-.admin-select option {
-    background: #1a1a1a;
-    color: white;
-}
-
-/* Große Bildschirme */
 @media (min-width: 1600px) {
     .admin-container {
         max-width: 600px;
