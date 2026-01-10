@@ -1,0 +1,112 @@
+.page.container {
+	max-width: 1150px;
+	margin: 0 auto;
+	padding: 1.5rem;
+    font-size: x-large;
+}
+
+.lead {
+	color: #cfc8c8;
+	margin-bottom: 1.5rem;
+    font-size: large;
+}
+
+.tracks {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+}
+
+/* Track Card */
+.trackcard {
+	display: flex;
+	justify-content: space-between;
+	gap: 1.5rem;
+	padding: 1.25rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.trackcard__left {
+	flex: 1;
+}
+
+.trackcard__right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+    color: #000000;
+}
+
+.trackcard__name {
+	font-weight: 600;
+	font-size: 1.8rem;
+	margin-bottom: 0.25rem;
+    color: #c21616;
+}
+
+.trackcard__desc {
+	margin: 0 0 0.5rem 0;
+	color: #000000;
+    font-size: 1.1rem;
+}
+
+/* Text helpers */
+.muted {
+	font-size: 0.9rem;
+	color: #777;
+}
+
+.small {
+	font-size: 0.85rem;
+	padding-left: 1rem;
+}
+
+/* Forms */
+.form-row {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+label {
+	font-size: 0.9rem;
+	color: #000000;
+}
+
+input,
+select {
+	padding: 0.35rem 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 0.9rem;
+}
+
+input[type="number"] {
+	width: 90px;
+}
+
+/* Buttons */
+.btn {
+	padding: 0.4rem 0.75rem;
+	border: none;
+	border-radius: 4px;
+	background: #2f6fed;
+	color: #fff;
+	font-size: 0.85rem;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #2459c8;
+}
+
+/* Details */
+details summary {
+	cursor: pointer;
+	font-size: 0.9rem;
+	color: #2f6fed;
+}
