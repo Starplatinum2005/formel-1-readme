@@ -1,0 +1,103 @@
+[
+  {
+    "id": "track-1",
+    "name": "Redstone Raceway",
+    "description": "Technische Strecke mit schnellen Kurven und langen Geraden.",
+    "avgRating": 3.5,
+    "ratings": [
+      {
+        "id": "r1",
+        "value": 4
+      },
+      {
+        "id": "r2",
+        "value": 5
+      },
+      {
+        "id": "r3",
+        "value": 4
+      },
+      {
+        "id": "2815fcb6-4907-4349-9cbf-8de657ff4227",
+        "value": 1,
+        "createdAt": "2026-01-10T10:37:23.138Z"
+      }
+    ],
+    "times": [
+      {
+        "id": "t1",
+        "time": 72.34,
+        "by": "Alice"
+      },
+      {
+        "id": "t2",
+        "time": 74.76,
+        "by": "Bruce"
+      },
+      {
+        "id": "9a514d9b-f8ec-4919-ab68-6f87d8591fd5",
+        "time": 58,
+        "by": "Test",
+        "createdAt": "2026-01-10T10:36:54.718Z"
+      }
+    ]
+  },
+  {
+    "id": "track-2",
+    "name": "Coastal Sprint Circuit",
+    "description": "Landschaftlich reizvoll, hohe Anforderungen an Bremspunkte.",
+    "avgRating": 4.7,
+    "ratings": [
+      {
+        "id": "r4",
+        "value": 5
+      },
+      {
+        "id": "r5",
+        "value": 4
+      }
+    ],
+    "times": [
+      {
+        "id": "271beb6c-75ef-409e-9e3d-4f4aa10293b3",
+        "time": 48,
+        "by": "Test",
+        "createdAt": "2026-01-10T10:38:12.001Z"
+      }
+    ]
+  },
+  {
+    "id": "track-3",
+    "name": "Nord Crest Park",
+    "description": "Kurvenreich und ideal für Einsteiger.",
+    "avgRating": 4.1,
+    "ratings": [
+      {
+        "id": "r6",
+        "value": 4
+      },
+      {
+        "id": "r7",
+        "value": 4
+      }
+    ],
+    "times": []
+  },
+  {
+    "id": "track-4",
+    "name": "Highland Loop",
+    "description": "Hügeliges Layout mit wechselnden Höhenprofilen.",
+    "avgRating": 4.2,
+    "ratings": [
+      {
+        "id": "r8",
+        "value": 4
+      },
+      {
+        "id": "r9",
+        "value": 4
+      }
+    ],
+    "times": []
+  }
+]

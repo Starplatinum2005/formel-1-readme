@@ -1,117 +1,92 @@
 [
   {
     "id": "b9bd33d8-ee0d-45b5-8403-d680b25b2c68",
-    "name": "Apex Racing Lenkrad",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 299,
+    "name": "Apex Spectre",
+    "description": "1.6L V6 Turbo-Hybrid ca. 1020 PS",
+    "price": 14000000,
     "createdAt": "2026-01-09T14:32:05.521Z",
+    "image": "/auto1.jpg",
     "category": "Fahrzeuge"
   },
   {
     "id": "de1fd2a4-7a56-4410-a0f6-086fbd57fef5",
-    "name": "Apex Racing Handschuhe",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 299,
+    "name": "Velocity Z-26",
+    "description": "Dual-Boost V6 ca. 1.050 PS",
+    "price": 12800000,
     "createdAt": "2026-01-09T14:32:15.025Z",
+    "image": "/auto2.jpg",
     "category": "Fahrzeuge"
   },
   {
     "id": "2333572f-5df0-4db0-b4f8-9afda069fec3",
-    "name": "Apex Racing Schuhe",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 299,
+    "name": "Zenith Aero",
+    "description": "High-Rev V6 Hybrid ca. 980 PS",
+    "price": 13500000,
     "createdAt": "2026-01-09T14:32:20.978Z",
+    "image": "/auto3.jpg",
     "category": "Fahrzeuge"
   },
   {
     "id": "96115ffd-fac4-4640-a436-f37f7c93feee",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Nova-X",
+    "description": "Bio-Fuel V6 Turbo ca. 1.010 PS",
+    "price": 15100000,
     "createdAt": "2026-01-09T15:04:05.811Z",
-    "category": "Ausrüstung"
+    "image": "/auto4.jpg",
+    "category": "Fahrzeuge"
   },
   {
     "id": "1ea79ea9-56c8-4735-a92a-3234bcec2863",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Fahrer-Rennanzug",
+    "description": "Mehrlagiges Spezialgewebe",
+    "price": 99.00,
     "createdAt": "2026-01-09T15:14:22.669Z",
+    "image": "/rennanzug.jpg",
     "category": "Ausrüstung"
   },
   {
     "id": "3871872a-3cb9-4804-972b-0ae3645b98f3",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Full-Face Rennhelm",
+    "description": "Kratzfestes Visier, Polsterung herausnehmbar",
+    "price": 75.00,
     "createdAt": "2026-01-09T15:14:23.935Z",
+    "image": "/rennhelm.jpg",
     "category": "Ausrüstung"
   },
   {
     "id": "f013f3b4-946d-4733-a87d-177ac2ee9c40",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Mechaniker-Werkzeugset",
+    "description": "Drehmomentschlüssel, Ratschen-Set, Präzisions-Schraubendreher",
+    "price": 49.00,
     "createdAt": "2026-01-09T15:14:25.158Z",
+    "image": "/werkzeugset.jpg",
     "category": "Ausrüstung"
   },
   {
     "id": "3e6e7b0c-dc14-4119-adcd-bce658d64640",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Team Shirt Classic",
+    "description": "Hochwertiges Rundhals-T-Shirt aus 100% Bio-Baumwolle",
+    "price": 29.95,
     "createdAt": "2026-01-09T15:14:26.049Z",
+    "image": "/tshirt.jpg",
     "category": "Merchandise"
   },
   {
     "id": "32316bbd-30d1-4688-905c-f44a6b15b47e",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Fahrer-Hoodie Paddock",
+    "description": "Schwerer Kapuzenpullover mit weich angerauter Innenseite",
+    "price": 59.95,
     "createdAt": "2026-01-09T15:14:26.893Z",
+    "image": "/hoodie.jpg",
     "category": "Merchandise"
   },
   {
     "id": "c88b78a3-12d1-4ec1-a25a-e91cc89c7462",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
+    "name": "Racing-Basecap Grid",
+    "description": "Klassische 6-Panel-Cap mit verstellbarem Verschluss",
+    "price": 24.95,
     "createdAt": "2026-01-09T15:14:27.609Z",
+    "image": "/basecap.jpg",
     "category": "Merchandise"
-  },
-  {
-    "id": "066fac25-1041-472a-b334-6dc88a7ee6f3",
-    "name": "Apex Racing Helm",
-    "description": "Force Feedback Lenkrad für Profis",
-    "price": 5000,
-    "createdAt": "2026-01-09T15:14:28.343Z",
-    "category": "Merchandise"
-  },
-
-
-  {
-    "id": "71c9f3a3-3e67-4ea8-9add-16d47b2cc514",
-    "name": "Stefan",
-    "description": "fAGGG",
-    "price": 0.05,
-    "category": "Merchandise",
-    "createdAt": "2026-01-09T16:30:35.396Z"
-  },
-  {
-    "id": "5d04cac2-e090-4b2e-9ef0-25a7715b3bd6",
-    "name": "Stefan2",
-    "description": "oaöf",
-    "price": 234,
-    "category": "Merchandise",
-    "createdAt": "2026-01-09T21:19:28.415Z"
-  },
-  {
-    "id": "e22a60c3-9276-45dd-9bed-3c600930ee79",
-    "name": "Auto",
-    "description": "Auto",
-    "price": 100000,
-    "category": "Fahrzeuge",
-    "image": "https://tse1.mm.bing.net/th/id/OIP.NEY944zI064X0N8TOq1YggHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
-    "createdAt": "2026-01-09T21:34:49.296Z"
   }
 ]
