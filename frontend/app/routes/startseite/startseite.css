@@ -298,11 +298,8 @@ code{
   margin-inline: auto;
 }
 .cta__actions{ display:flex; gap:12px; flex-wrap:wrap; }
-
-.footer{
-  border-top:1px solid var(--line);
-  padding:18px 0;
-  background: rgba(0,0,0,.18);
+/*
+@media (max-width: 600px){
+  .grid--2{ grid-template-columns:1fr !important; }
 }
-.footer__inner{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-.footer__links{ display:flex; gap:12px; flex-wrap:wrap; }
+*/

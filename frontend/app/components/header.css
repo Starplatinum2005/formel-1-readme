@@ -16,8 +16,8 @@
   gap:16px;
 }
 .brand_logo{
-  width: 2.375rem;
-  height: 2.375rem;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand__mark{
@@ -48,4 +48,5 @@
   color:white;
   border-color:transparent;
 }
-.nav__link--cta:hover{ background:var(--red2); }
+.nav__link--cta:hover{ 
+  background:var(--red2); }
