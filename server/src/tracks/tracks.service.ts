@@ -22,6 +22,13 @@ export class TracksService {
     return this.readData();
   }
 
+  findOne(id: string) {
+    const tracks = this.readData();
+    const t = tracks.find((x: any) => x.id === id);
+    if (!t) throw new NotFoundException(`Track ${id} nicht gefunden`);
+    return t;
+  }
+
   addRating(id: string, rating: number) {
     const tracks = this.readData();
     const t = tracks.find((x: any) => x.id === id);

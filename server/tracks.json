@@ -3,6 +3,7 @@
     "id": "track-1",
     "name": "Redstone Raceway",
     "description": "Technische Strecke mit schnellen Kurven und langen Geraden.",
+    "image": "/redstone_raceway.jpg",
     "avgRating": 3.5,
     "ratings": [
       {
@@ -46,7 +47,8 @@
     "id": "track-2",
     "name": "Coastal Sprint Circuit",
     "description": "Landschaftlich reizvoll, hohe Anforderungen an Bremspunkte.",
-    "avgRating": 4.7,
+    "image": "/Rennstrecke_1.png",
+    "avgRating": 4.333333333333333,
     "ratings": [
       {
         "id": "r4",
@@ -55,6 +57,11 @@
       {
         "id": "r5",
         "value": 4
+      },
+      {
+        "id": "cf0c02d5-9cb5-4f03-80e8-5e08b855a50b",
+        "value": 4,
+        "createdAt": "2026-01-12T12:37:57.636Z"
       }
     ],
     "times": [
@@ -63,6 +70,12 @@
         "time": 48,
         "by": "Test",
         "createdAt": "2026-01-10T10:38:12.001Z"
+      },
+      {
+        "id": "d53f07af-0fbe-41d3-be22-c916f356f575",
+        "time": 67,
+        "by": "Stef Stef",
+        "createdAt": "2026-01-12T12:38:10.292Z"
       }
     ]
   },
@@ -70,6 +83,7 @@
     "id": "track-3",
     "name": "Nord Crest Park",
     "description": "Kurvenreich und ideal für Einsteiger.",
+    "image": "/rennstrecke_leicht.png",
     "avgRating": 4.1,
     "ratings": [
       {
@@ -81,12 +95,26 @@
         "value": 4
       }
     ],
-    "times": []
+    "times": [
+      {
+        "id": "70b4aa59-3fe6-4400-b1a4-d0983284b226",
+        "time": 127,
+        "by": "Miller",
+        "createdAt": "2026-01-12T10:10:54.181Z"
+      },
+      {
+        "id": "77c61d9f-a559-49d6-90db-e6b4da660745",
+        "time": 103,
+        "by": "Hewis Lamilton",
+        "createdAt": "2026-01-12T10:11:49.307Z"
+      }
+    ]
   },
   {
     "id": "track-4",
     "name": "Highland Loop",
     "description": "Hügeliges Layout mit wechselnden Höhenprofilen.",
+    "image": "/rennstrecke_ländlich.png",
     "avgRating": 4.2,
     "ratings": [
       {
@@ -98,6 +126,13 @@
         "value": 4
       }
     ],
-    "times": []
+    "times": [
+      {
+        "id": "8ad0290a-87f2-40db-98f0-9a8d2fb1379b",
+        "time": 64,
+        "by": "Stefan",
+        "createdAt": "2026-01-12T10:13:00.984Z"
+      }
+    ]
   }
 ]

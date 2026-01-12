@@ -2,111 +2,139 @@
 	max-width: 1150px;
 	margin: 0 auto;
 	padding: 1.5rem;
-    font-size: x-large;
+    font-size: xx-large;
+	text-align: center;
 }
 
 .lead {
 	color: #cfc8c8;
-	margin-bottom: 1.5rem;
-    font-size: large;
+	margin: 1.5rem auto;
+	font-size: 1.2rem;
+	text-align: center;
+	display: block;
 }
 
+/* Container Grid */
 .tracks {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 1.25rem;
+    display: grid;
+    /* Automatische Spalten: Mindestens 350px breit, sonst Umbruch */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
 }
 
-/* Track Card */
+/* Die Karte selbst */
 .trackcard {
-	display: flex;
-	justify-content: space-between;
-	gap: 1.5rem;
-	padding: 1.25rem;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	background: #fff;
+    display: flex;
+    flex-direction: column; /* WICHTIG: Alles untereinander */
+    border: none; /* Kein harter Rand, lieber Schatten */
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden; /* Damit das Bild die Ecken nicht überlappt */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%; /* Damit alle Karten in einer Zeile gleich hoch sind */
 }
 
-.trackcard__left {
-	flex: 1;
+/* Hover Effekt für die ganze Karte */
+.trackcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.trackcard__right {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-    color: #000000;
+/* Bildbereich */
+.trackcard__header {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.trackcard__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.trackcard:hover .trackcard__image {
+    transform: scale(1.05); /* Leichter Zoom beim Hovern */
+}
+
+/* Inhalt (Mitte) */
+.trackcard__body {
+    padding: 1.5rem;
+    flex: 1; /* Drückt den Footer nach unten */
+    display: flex;
+    flex-direction: column;
 }
 
 .trackcard__name {
-	font-weight: 600;
-	font-size: 1.8rem;
-	margin-bottom: 0.25rem;
-    color: #c21616;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.trackcard__name a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.trackcard__name a:hover {
+    color: #c23434;
 }
 
 .trackcard__desc {
-	margin: 0 0 0.5rem 0;
-	color: #000000;
-    font-size: 1.1rem;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* Text helpers */
-.muted {
-	font-size: 0.9rem;
-	color: #777;
+/* Footer (Unten: Stats + Button) */
+.trackcard__footer {
+    padding: 1rem 1.5rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.small {
-	font-size: 0.85rem;
-	padding-left: 1rem;
+.trackcard__stats {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    color: #666;
+    gap: 0.2rem;
 }
 
-/* Forms */
-.form-row {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	flex-wrap: wrap;
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-label {
-	font-size: 0.9rem;
-	color: #000000;
-}
-
-input,
-select {
-	padding: 0.35rem 0.5rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	font-size: 0.9rem;
-}
-
-input[type="number"] {
-	width: 90px;
-}
-
-/* Buttons */
+/* Button Styling */
 .btn {
-	padding: 0.4rem 0.75rem;
-	border: none;
-	border-radius: 4px;
-	background: #2f6fed;
-	color: #fff;
-	font-size: 0.85rem;
-	cursor: pointer;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: #c23434;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
 }
 
 .btn:hover {
-	background: #2459c8;
-}
-
-/* Details */
-details summary {
-	cursor: pointer;
-	font-size: 0.9rem;
-	color: #2f6fed;
+    background: #a11f1f;
 }
