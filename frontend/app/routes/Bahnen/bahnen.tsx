@@ -36,34 +36,6 @@ export default function BahnenPage() {
 		};
 	}, []);
 
-	async function submitRating(trackId: string, value: number) {
-		try {
-			const res = await fetch(`${API_BASE}/tracks/${encodeURIComponent(trackId)}/rating`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ rating: value }),
-			});
-			const updated = await res.json();
-			setTracks((prev) => (prev ? prev.map((t) => (t.id === updated.id ? updated : t)) : [updated]));
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
-	async function submitTime(trackId: string, time: number, by?: string) {
-		try {
-			const res = await fetch(`${API_BASE}/tracks/${encodeURIComponent(trackId)}/time`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ time, by }),
-			});
-			const updated = await res.json();
-			setTracks((prev) => (prev ? prev.map((t) => (t.id === updated.id ? updated : t)) : [updated]));
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
 	if (loading) return <div className="page container">Strecken werden geladen…</div>;
 	if (error) return <div className="page container">Fehler: {error}</div>;
 

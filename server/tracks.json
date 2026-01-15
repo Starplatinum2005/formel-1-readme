@@ -134,5 +134,91 @@
         "createdAt": "2026-01-12T10:13:00.984Z"
       }
     ]
+  },
+  {
+    "id": "track-5",
+    "name": "Desert Thunder Circuit",
+    "description": "Schnelle Wüstenstrecke mit weiten Kurven und hoher Geschwindigkeit.",
+    "image": "/desert_thunder.jpg",
+    "avgRating": 4.0,
+    "ratings": [
+      {
+        "id": "r10",
+        "value": 4
+      }
+    ],
+    "times": []
+  },
+  {
+    "id": "track-6",
+    "name": "Urban Blitz Track",
+    "description": "Städtische Rennstrecke mit engen Kurven und Hindernissen.",
+    "image": "/urban_blitz.jpg",
+    "avgRating": 3.8,
+    "ratings": [
+      {
+        "id": "r11",
+        "value": 4
+      },
+      {
+        "id": "r12",
+        "value": 3
+      }
+    ],
+    "times": [
+      {
+        "id": "t10",
+        "time": 85.5,
+        "by": "UrbanRacer"
+      }
+    ]
+  },
+  {
+    "id": "track-7",
+    "name": "Mountain Peak Rally",
+    "description": "Bergige Strecke mit steilen Anstiegen und Abfahrten.",
+    "image": "/mountain_peak.jpg",
+    "avgRating": 4.5,
+    "ratings": [
+      {
+        "id": "r13",
+        "value": 5
+      },
+      {
+        "id": "r14",
+        "value": 4
+      }
+    ],
+    "times": [
+      {
+        "id": "t11",
+        "time": 120.0,
+        "by": "PeakDriver"
+      }
+    ]
+  },
+  {
+    "id": "track-8",
+    "name": "Night Glow Speedway",
+    "description": "Nachtstrecke mit Neon-Beleuchtung und rutschigen Bedingungen.",
+    "image": "/night_glow.jpg",
+    "avgRating": 4.3,
+    "ratings": [
+      {
+        "id": "r15",
+        "value": 4
+      },
+      {
+        "id": "r16",
+        "value": 5
+      }
+    ],
+    "times": [
+      {
+        "id": "t12",
+        "time": 92.3,
+        "by": "NightHawk"
+      }
+    ]
   }
 ]

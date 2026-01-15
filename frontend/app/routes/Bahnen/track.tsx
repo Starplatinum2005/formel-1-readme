@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import "./bahnen.css";
+import "./track.css";
 
 type Rating = { id: string; value: number; createdAt?: string };
 type TimeEntry = { id: string; time: number; by?: string; createdAt?: string };

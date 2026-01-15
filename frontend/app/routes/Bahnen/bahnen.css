@@ -1,14 +1,15 @@
 .page.container {
-	max-width: 1150px;
 	margin: 0 auto;
-	padding: 1.5rem;
+	padding: 0.5rem;
     font-size: xx-large;
 	text-align: center;
+	background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    color: #f5f5f5;
 }
 
 .lead {
 	color: #cfc8c8;
-	margin: 1.5rem auto;
+	margin: 1rem auto;
 	font-size: 1.2rem;
 	text-align: center;
 	display: block;
@@ -18,9 +19,10 @@
 .tracks {
     display: grid;
     /* Automatische Spalten: Mindestens 350px breit, sonst Umbruch */
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
     gap: 2rem;
     padding-bottom: 2rem;
+    padding: 2rem; /* Abstand um die Boxen herum */
 }
 
 /* Die Karte selbst */
@@ -55,10 +57,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.trackcard:hover .trackcard__image {
-    transform: scale(1.05); /* Leichter Zoom beim Hovern */
 }
 
 /* Inhalt (Mitte) */
@@ -130,9 +128,9 @@
     border-radius: 6px;
     background: #c23434;
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: none;
-    transition: background 0.2s;
+    font-size: large;
 }
 
 .btn:hover {
