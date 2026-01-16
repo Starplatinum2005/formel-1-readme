@@ -1,154 +1,203 @@
 :root {
-  --primary-color: #ffffff;
-  --success-color: #e22727;
-  --success-hover: #ce1b1b;
-  --text-color: #7b6a6a;
-  --bg-color: #f9f9f9;
-  --card-bg: #ffffff;
-  --border-color: #ddd;
-  --muted-color: #6c757d;
-  --radius: 8px;
-  --spacing: 1rem;
+  --black: #0d0d0d;
+  --white: #ffffff;
+  --red: #c23434;
+  --red-hover: #a91f1f;
+
+  --soft-bg: #f6f6f6;
+  --border: #e5e5e5;
+
+  --text-dark: #1a1a1a;
+  --text-muted: #6b6b6b;
+
+  --radius: 14px;
 }
 
-/* --- Layout Container --- */
-.page {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
-  padding-bottom: 3rem;
+/* ===== PAGE WRAPPER (NUR DETAILSEITE) ===== */
+
+.track-page {
+  background: var(--text-dark);
+  min-height: 100vh;
 }
 
-.container {
+/* Container bleibt kompatibel mit globalem Layout */
+.track-page .container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 2rem 1.5rem 4rem;
+  color: var(--text-dark);
 }
 
-/* --- Typografie & Links --- */
-.page h1 {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 700;
-}
+/* ===== NAV LINK ===== */
 
-.page h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.5rem;
-  display: inline-block;
-}
-
-.page a {
-  color: var(--primary-color);
+.track-page a {
+  color: var(--red);
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.2s;
 }
 
-.page a:hover {
+.track-page a:hover {
   text-decoration: underline;
-  opacity: 0.8;
 }
 
-.page .muted {
-  color: var(--muted-color);
+/* ===== HEADLINE ===== */
+
+.track-page h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 1rem 0 0.5rem;
+  color: var(--white);
+}
+
+/* ===== HERO IMAGE ===== */
+
+.track-page .trackcard__image {
+  width: 70%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== CONTENT CARD ===== */
+
+.track-page .content-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== TEXT ===== */
+
+.track-page p {
+  line-height: 1.6;
+}
+
+.track-page .muted {
+  color: var(--text-muted);
   font-size: 0.9rem;
-  font-weight: 500;
+  margin-top: 0.4rem;
 }
 
-/* --- Bilder --- */
-.trackcard__image {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover; /* Verhindert Verzerrung */
-  border-radius: var(--radius);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+/* ===== SECTIONS ===== */
+
+.track-page section {
+  margin-top: 2.5rem;
 }
 
-/* --- Hilfsklassen (Utilities) --- */
-.page .mt-4 { margin-top: 1.5rem; }
-.page .mt-6 { margin-top: 3rem; }
+.track-page section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--red);
+  padding-left: 0.75rem;
+}
 
-/* --- Formulare --- */
-.page .form-row {
+/* ===== FORMS ===== */
+
+.track-page .form-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.75rem;
   align-items: center;
-  background: var(--card-bg);
-  padding: 15px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: var(--soft-bg);
+  padding: 1rem;
+  border-radius: 10px;
 }
 
-.page .form-row label {
-  font-weight: 600;
-  margin-right: 5px;
+.track-page input,
+.track-page select {
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
 }
 
-/* Inputs & Selects */
-.page input, .page select {
-  padding: 10px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
-  flex: 1; /* Nimmt verfügbaren Platz ein */
-  min-width: 150px;
-}
-
-.page input:focus, .page select:focus {
+.track-page input:focus,
+.track-page select:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(199, 10, 10, 0.518);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(194, 52, 52, 0.25);
 }
 
-/* Buttons */
-.page .btn {
-  background-color: var(--success-color);
-  color: white;
+/* ===== BUTTON ===== */
+
+.track-page .btn {
+  background: linear-gradient(135deg, var(--red), var(--red-hover));
+  color: var(--white);
   border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-  font-weight: 600;
 }
 
-.page .btn:hover {
-  background-color: var(--success-hover);
+.track-page .btn:hover {
+  filter: brightness(1.1);
 }
 
-.page .btn:active {
-  transform: scale(0.98);
-}
+/* ===== TIMES LIST ===== */
 
-/* --- Listen (Zeiten) --- */
-.page ul.small {
+.track-page ul.small {
   list-style: none;
   padding: 0;
-  margin: 0;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  margin-top: 1rem;
   border-radius: var(--radius);
+  overflow: hidden;
 }
 
-.page ul.small li {
-  padding: 10px 15px;
-  border-bottom: 1px solid #eee;
+.track-page ul.small li {
+  background: var(--white);
+  padding: 0.8rem 1rem;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid var(--border);
 }
 
-.page ul.small li:last-child {
+.track-page ul.small li:nth-child(even) {
+  background: var(--soft-bg);
+}
+
+.track-page ul.small li:last-child {
   border-bottom: none;
 }
 
-.page ul.small li:nth-child(even) {
-  background-color: #fafafa;
+.track-page .track-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.track-page .track-meta div {
+  background: #f6f6f6;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-page .track-meta span {
+  font-size: 0.75rem;
+  color: #6b6b6b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.track-page .track-meta strong {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-top: 0.2rem;
+}
+
+.track-page .track-meta .record {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #c23434, #a91f1f);
+  color: #fff;
+}
+
+.track-page .track-meta .record span,
+.track-page .track-meta .record strong {
+  color: #fff;
 }

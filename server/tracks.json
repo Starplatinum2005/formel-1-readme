@@ -5,6 +5,15 @@
     "description": "Technische Strecke mit schnellen Kurven und langen Geraden.",
     "image": "/redstone_raceway.jpg",
     "avgRating": 3.5,
+    "lengthKm": "5,89",
+    "laps": 57,
+    "firstGrandPrix": 1978,
+    "country": "USA",
+    "recordLap": {
+      "time": 72.34,
+      "driver": "Max Verstappen",
+      "year": 2022
+    },
     "ratings": [
       {
         "id": "r1",
@@ -139,21 +148,33 @@
     "id": "track-5",
     "name": "Desert Thunder Circuit",
     "description": "Schnelle Wüstenstrecke mit weiten Kurven und hoher Geschwindigkeit.",
-    "image": "/desert_thunder.jpg",
-    "avgRating": 4.0,
+    "image": "/rennstrecke_wueste.png",
+    "avgRating": 4.5,
     "ratings": [
       {
         "id": "r10",
         "value": 4
+      },
+      {
+        "id": "65ddee9e-f80d-4309-8784-cc7342aecd50",
+        "value": 5,
+        "createdAt": "2026-01-16T14:42:07.180Z"
       }
     ],
-    "times": []
+    "times": [
+      {
+        "id": "b06909da-1987-4ff3-b04f-75f45da12dd3",
+        "time": 56,
+        "by": "Stefan",
+        "createdAt": "2026-01-16T14:42:59.823Z"
+      }
+    ]
   },
   {
     "id": "track-6",
     "name": "Urban Blitz Track",
     "description": "Städtische Rennstrecke mit engen Kurven und Hindernissen.",
-    "image": "/urban_blitz.jpg",
+    "image": "/rennstrecke_stadt.jpg",
     "avgRating": 3.8,
     "ratings": [
       {
@@ -177,7 +198,7 @@
     "id": "track-7",
     "name": "Mountain Peak Rally",
     "description": "Bergige Strecke mit steilen Anstiegen und Abfahrten.",
-    "image": "/mountain_peak.jpg",
+    "image": "/rennstrecke_berge.png",
     "avgRating": 4.5,
     "ratings": [
       {
@@ -192,7 +213,7 @@
     "times": [
       {
         "id": "t11",
-        "time": 120.0,
+        "time": 120,
         "by": "PeakDriver"
       }
     ]
@@ -201,7 +222,7 @@
     "id": "track-8",
     "name": "Night Glow Speedway",
     "description": "Nachtstrecke mit Neon-Beleuchtung und rutschigen Bedingungen.",
-    "image": "/night_glow.jpg",
+    "image": "/rennstrecke_neon.png",
     "avgRating": 4.3,
     "ratings": [
       {
