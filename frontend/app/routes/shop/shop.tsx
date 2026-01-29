@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { formatEuroDE } from "~/utils/format";
 import "./shop.css";
 
 interface Product {
@@ -26,10 +27,10 @@ export default function ShopPage() {
       .catch((err) => setError(err.message));
   }, []);
 
-return (
+  return (
     <div className="shop-container">
       <h1>Apex League Shop</h1>
-      
+
       {error && <p className="error-msg">{error}</p>}
 
       {/* Wir gehen jede Kategorie einzeln durch */}
@@ -44,15 +45,15 @@ return (
             <div className="product-grid">
               {categoryProducts.map((product) => (
                 <div key={product.id} className="product-card">
-                  
+
                   {/* --- BILD-BEREICH ANFANG --- */}
                   {product.image && (
                     <div className="product-image-container">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="product-image" 
-                        onError={(e) => (e.currentTarget.style.display = 'none')} 
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="product-image"
+                        onError={(e) => (e.currentTarget.style.display = 'none')}
                       />
                     </div>
                   )}
@@ -60,7 +61,7 @@ return (
 
                   <h3>{product.name}</h3>
                   <p>{product.description}</p>
-                  <div className="price-tag">{product.price.toFixed(2)} €</div>
+                  <div className="price-tag">{formatEuroDE(product.price)}</div>
                   <button className="buy-button">In den Warenkorb</button>
                 </div>
               ))}

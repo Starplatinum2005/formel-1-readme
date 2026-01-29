@@ -6,15 +6,15 @@ import { CreateProductDto } from './dto/create-product.dto';
 @Injectable()
 export class ProductsService {
 
-  private readonly dbPath = './products.json'; 
+  private readonly dbPath = './products.json';
 
-private readData() {
-  if (!fs.existsSync(this.dbPath)) {
-    fs.writeFileSync(this.dbPath, JSON.stringify([]));
+  private readData() {
+    if (!fs.existsSync(this.dbPath)) {
+      fs.writeFileSync(this.dbPath, JSON.stringify([]));
+    }
+    const fileContent = fs.readFileSync(this.dbPath, 'utf-8');
+    return JSON.parse(fileContent);
   }
-  const fileContent = fs.readFileSync(this.dbPath, 'utf-8');
-  return JSON.parse(fileContent);
-}
 
   private writeData(data: any) {
     fs.writeFileSync(this.dbPath, JSON.stringify(data, null, 2));
@@ -36,16 +36,16 @@ private readData() {
   }
 
   delete(id: string) {
-  const products = this.readData();
-  const filteredProducts = products.filter(p => p.id !== id);
-  
-  if (products.length === filteredProducts.length) {
-    throw new NotFoundException(`Produkt mit ID ${id} nicht gefunden`);
+    const products = this.readData();
+    const filteredProducts = products.filter(p => p.id !== id);
+
+    if (products.length === filteredProducts.length) {
+      throw new NotFoundException(`Produkt mit ID ${id} nicht gefunden`);
+    }
+
+    this.writeData(filteredProducts);
+    return { deleted: true };
   }
-  
-  this.writeData(filteredProducts);
-  return { deleted: true };
-}
 
   // A1: CRUD - Read Operation
   findAll() {

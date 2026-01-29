@@ -8,7 +8,7 @@ import { RolesGuard } from './roles.guard';
 @UseGuards(RolesGuard)
 export class ProductsController {
 
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(private readonly productsService: ProductsService) { }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
@@ -23,7 +23,7 @@ export class ProductsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-  return this.productsService.delete(id);
-}
+    return this.productsService.delete(id);
+  }
 
 }
