@@ -79,6 +79,10 @@ export default function TrackPage() {
     }
 
     async function submitTime() {
+        if (!timeVal || Number(timeVal) <= 0 || by.trim() === "") {
+        alert("Bitte gib eine gültige Zeit und deinen Namen ein.");
+        return;
+        }
         if (!id) return;
         try {
             const res = await fetch(`${API_BASE}/tracks/${encodeURIComponent(id)}/time`, {

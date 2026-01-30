@@ -98,4 +98,3 @@ function TrackCard({ track }: { track: Track }) {
         </article>
     );
 }
-
