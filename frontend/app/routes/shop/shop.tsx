@@ -13,9 +13,16 @@ interface Product {
 
 const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
 
+
+
 export default function ShopPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  
+  useEffect(() => {
+    setIsAdmin(localStorage.getItem('role') === 'admin');
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
