@@ -3,7 +3,17 @@
     "id": "track-1",
     "name": "Redstone Raceway",
     "description": "Technische Strecke mit schnellen Kurven und langen Geraden.",
+    "image": "/redstone_raceway.jpg",
     "avgRating": 3.5,
+    "lengthKm": "5,89",
+    "laps": 57,
+    "firstGrandPrix": 1978,
+    "country": "USA",
+    "recordLap": {
+      "time": 72.34,
+      "driver": "Max Verstappen",
+      "year": 2022
+    },
     "ratings": [
       {
         "id": "r1",
@@ -26,7 +36,7 @@
     "times": [
       {
         "id": "t1",
-        "time": 72.34,
+        "time": 76.74,
         "by": "Alice"
       },
       {
@@ -36,7 +46,7 @@
       },
       {
         "id": "9a514d9b-f8ec-4919-ab68-6f87d8591fd5",
-        "time": 58,
+        "time": 81.23,
         "by": "Test",
         "createdAt": "2026-01-10T10:36:54.718Z"
       }
@@ -46,7 +56,17 @@
     "id": "track-2",
     "name": "Coastal Sprint Circuit",
     "description": "Landschaftlich reizvoll, hohe Anforderungen an Bremspunkte.",
-    "avgRating": 4.7,
+    "image": "/Rennstrecke_1.png",
+    "avgRating": 4.333333333333333,
+    "lengthKm": "4,21",
+    "laps": 71,
+    "firstGrandPrix": 1995,
+    "country": "Australien",
+    "recordLap": {
+      "time": 67.12,
+      "driver": "Charles Leclerc",
+      "year": 2023
+    },
     "ratings": [
       {
         "id": "r4",
@@ -55,14 +75,25 @@
       {
         "id": "r5",
         "value": 4
+      },
+      {
+        "id": "cf0c02d5-9cb5-4f03-80e8-5e08b855a50b",
+        "value": 4,
+        "createdAt": "2026-01-12T12:37:57.636Z"
       }
     ],
     "times": [
       {
         "id": "271beb6c-75ef-409e-9e3d-4f4aa10293b3",
-        "time": 48,
+        "time": 82.63,
         "by": "Test",
         "createdAt": "2026-01-10T10:38:12.001Z"
+      },
+      {
+        "id": "d53f07af-0fbe-41d3-be22-c916f356f575",
+        "time": 69.43,
+        "by": "Stef Stef",
+        "createdAt": "2026-01-12T12:38:10.292Z"
       }
     ]
   },
@@ -70,7 +101,17 @@
     "id": "track-3",
     "name": "Nord Crest Park",
     "description": "Kurvenreich und ideal für Einsteiger.",
+    "image": "/rennstrecke_leicht.png",
     "avgRating": 4.1,
+    "lengthKm": "3,15",
+    "laps": 85,
+    "firstGrandPrix": 2010,
+    "country": "Niederlande",
+    "recordLap": {
+      "time": 59.45,
+      "driver": "Lando Norris",
+      "year": 2024
+    },
     "ratings": [
       {
         "id": "r6",
@@ -81,13 +122,36 @@
         "value": 4
       }
     ],
-    "times": []
+    "times": [
+      {
+        "id": "70b4aa59-3fe6-4400-b1a4-d0983284b226",
+        "time": 107.23,
+        "by": "Miller",
+        "createdAt": "2026-01-12T10:10:54.181Z"
+      },
+      {
+        "id": "77c61d9f-a559-49d6-90db-e6b4da660745",
+        "time": 62.93,
+        "by": "Hewis Lamilton",
+        "createdAt": "2026-01-12T10:11:49.307Z"
+      }
+    ]
   },
   {
     "id": "track-4",
     "name": "Highland Loop",
     "description": "Hügeliges Layout mit wechselnden Höhenprofilen.",
+    "image": "/rennstrecke_ländlich.png",
     "avgRating": 4.2,
+    "lengthKm": "6,12",
+    "laps": 52,
+    "firstGrandPrix": 1965,
+    "country": "Schottland",
+    "recordLap": {
+      "time": 88.21,
+      "driver": "Lewis Hamilton",
+      "year": 2021
+    },
     "ratings": [
       {
         "id": "r8",
@@ -98,6 +162,147 @@
         "value": 4
       }
     ],
-    "times": []
+    "times": [
+      {
+        "id": "8ad0290a-87f2-40db-98f0-9a8d2fb1379b",
+        "time": 94.21,
+        "by": "Stefan",
+        "createdAt": "2026-01-12T10:13:00.984Z"
+      }
+    ]
+  },
+  {
+    "id": "track-5",
+    "name": "Desert Thunder Circuit",
+    "description": "Schnelle Wüstenstrecke mit weiten Kurven und hoher Geschwindigkeit.",
+    "image": "/rennstrecke_wueste.png",
+    "avgRating": 4.5,
+    "lengthKm": "5,41",
+    "laps": 56,
+    "firstGrandPrix": 2004,
+    "country": "Bahrain",
+    "recordLap": {
+      "time": 74.56,
+      "driver": "Fernando Alonso",
+      "year": 2023
+    },
+    "ratings": [
+      {
+        "id": "r10",
+        "value": 4
+      },
+      {
+        "id": "65ddee9e-f80d-4309-8784-cc7342aecd50",
+        "value": 5,
+        "createdAt": "2026-01-16T14:42:07.180Z"
+      }
+    ],
+    "times": [
+      {
+        "id": "b06909da-1987-4ff3-b04f-75f45da12dd3",
+        "time": 86.52,
+        "by": "Stefan",
+        "createdAt": "2026-01-16T14:42:59.823Z"
+      }
+    ]
+  },
+  {
+    "id": "track-6",
+    "name": "Urban Blitz Track",
+    "description": "Städtische Rennstrecke mit engen Kurven und Hindernissen.",
+    "image": "/rennstrecke_stadt.jpg",
+    "avgRating": 3.8,
+    "lengthKm": "3,33",
+    "laps": 78,
+    "firstGrandPrix": 1950,
+    "country": "Monaco",
+    "recordLap": {
+      "time": 70.11,
+      "driver": "Sergio Pérez",
+      "year": 2022
+    },
+    "ratings": [
+      {
+        "id": "r11",
+        "value": 4
+      },
+      {
+        "id": "r12",
+        "value": 3
+      }
+    ],
+    "times": [
+      {
+        "id": "t10",
+        "time": 85.5,
+        "by": "UrbanRacer"
+      }
+    ]
+  },
+  {
+    "id": "track-7",
+    "name": "Mountain Peak Rally",
+    "description": "Bergige Strecke mit steilen Anstiegen und Abfahrten.",
+    "image": "/rennstrecke_berge.png",
+    "avgRating": 4.5,
+    "lengthKm": "7,00",
+    "laps": 44,
+    "firstGrandPrix": 1982,
+    "country": "Österreich",
+    "recordLap": {
+      "time": 102.33,
+      "driver": "Carlos Sainz",
+      "year": 2024
+    },
+    "ratings": [
+      {
+        "id": "r13",
+        "value": 5
+      },
+      {
+        "id": "r14",
+        "value": 4
+      }
+    ],
+    "times": [
+      {
+        "id": "t11",
+        "time": 120.76,
+        "by": "PeakDriver"
+      }
+    ]
+  },
+  {
+    "id": "track-8",
+    "name": "Night Glow Speedway",
+    "description": "Nachtstrecke mit Neon-Beleuchtung und rutschigen Bedingungen.",
+    "image": "/rennstrecke_neon.png",
+    "avgRating": 4.3,
+    "lengthKm": "5,06",
+    "laps": 61,
+    "firstGrandPrix": 2008,
+    "country": "Singapur",
+    "recordLap": {
+      "time": 82.15,
+      "driver": "George Russell",
+      "year": 2023
+    },
+    "ratings": [
+      {
+        "id": "r15",
+        "value": 4
+      },
+      {
+        "id": "r16",
+        "value": 5
+      }
+    ],
+    "times": [
+      {
+        "id": "t12",
+        "time": 92.31,
+        "by": "NightHawk"
+      }
+    ]
   }
 ]

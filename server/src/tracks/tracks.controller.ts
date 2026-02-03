@@ -10,6 +10,11 @@ export class TracksController {
     return this.tracksService.findAll();
   }
 
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.tracksService.findOne(id);
+  }
+
   @Post(':id/rating')
   @HttpCode(HttpStatus.OK)
   addRating(@Param('id') id: string, @Body() body: { rating: number }) {

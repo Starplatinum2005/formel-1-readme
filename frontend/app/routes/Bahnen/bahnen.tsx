@@ -7,6 +7,7 @@ type Track = {
 	id: string;
 	name: string;
 	description: string;
+	image?: string;
 	avgRating?: number;
 	ratings?: Rating[];
 	times?: TimeEntry[];
@@ -35,34 +36,6 @@ export default function BahnenPage() {
 		};
 	}, []);
 
-	async function submitRating(trackId: string, value: number) {
-		try {
-			const res = await fetch(`${API_BASE}/tracks/${encodeURIComponent(trackId)}/rating`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ rating: value }),
-			});
-			const updated = await res.json();
-			setTracks((prev) => (prev ? prev.map((t) => (t.id === updated.id ? updated : t)) : [updated]));
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
-	async function submitTime(trackId: string, time: number, by?: string) {
-		try {
-			const res = await fetch(`${API_BASE}/tracks/${encodeURIComponent(trackId)}/time`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ time, by }),
-			});
-			const updated = await res.json();
-			setTracks((prev) => (prev ? prev.map((t) => (t.id === updated.id ? updated : t)) : [updated]));
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
 	if (loading) return <div className="page container">Strecken werden geladen…</div>;
 	if (error) return <div className="page container">Fehler: {error}</div>;
 
@@ -73,7 +46,7 @@ export default function BahnenPage() {
 
 			<div className="tracks">
 				{tracks && tracks.length ? (
-					tracks.map((t) => <TrackCard key={t.id} track={t} onRate={submitRating} onTime={submitTime} />)
+					tracks.map((t) => <TrackCard key={t.id} track={t} />)
 				) : (
 					<div>Keine Strecken gefunden.</div>
 				)}
@@ -82,48 +55,46 @@ export default function BahnenPage() {
 	);
 }
 
-function TrackCard({ track, onRate, onTime }: { track: Track; onRate: (id: string, v: number) => void; onTime: (id: string, time: number, by?: string) => void }) {
-	const [rateVal, setRateVal] = useState(5);
-	const [timeVal, setTimeVal] = useState(0);
-	const [by, setBy] = useState('');
+function TrackCard({ track }: { track: Track }) {
+    return (
+        <article className="trackcard">
+            {/* OBEN: Bild */}
+            <div className="trackcard__header">
+                <a href={`/tracks/${track.id}`}>
+                    <img 
+                        className="trackcard__image" 
+                        src={track.image ?? `https://picsum.photos/seed/${encodeURIComponent(track.id)}/600/300`} 
+                        alt={track.name} 
+                    />
+                </a>
+            </div>
 
-	return (
-		<article className="trackcard">
-			<div className="trackcard__left">
-				<div className="trackcard__name">{track.name}</div>
-				<p className="trackcard__desc">{track.description}</p>
-				<div className="muted">Durchschnitt: {(track.avgRating ?? 0).toFixed(2)} ★</div>
-				<div className="muted">Zeiten: {track.times?.length ?? 0}</div>
-			</div>
+            {/* MITTE: Titel & Beschreibung */}
+            <div className="trackcard__body">
+                <h2 className="trackcard__name">
+                    <a href={`/tracks/${track.id}`}>{track.name}</a>
+                </h2>
+                <p className="trackcard__desc">{track.description}</p>
+            </div>
 
-			<div className="trackcard__right">
-				<div className="form-row">
-					<label>Bewertung</label>
-					<select value={rateVal} onChange={(e) => setRateVal(Number(e.target.value))}>
-						{[5,4,3,2,1].map((n)=> <option key={n} value={n}>{n} ★</option>)}
-					</select>
-					<button className="btn" onClick={() => onRate(track.id, rateVal)}>Absenden</button>
-				</div>
-
-				<div className="form-row">
-					<label>Rundenzeit (s)</label>
-					<input type="number" value={timeVal} onChange={(e)=> setTimeVal(Number(e.target.value))} />
-					<input placeholder="Name" value={by} onChange={(e)=> setBy(e.target.value)} />
-					<button className="btn" onClick={()=> onTime(track.id, Number(timeVal), by)}>Eintragen</button>
-				</div>
-
-				{track.times && track.times.length ? (
-					<details>
-						<summary>Letzte Zeiten ({track.times.length})</summary>
-						<ul className="small">
-							{track.times.slice(-5).reverse().map((tt)=> (
-								<li key={tt.id}>{tt.time}s — {tt.by}</li>
-							))}
-						</ul>
-					</details>
-				) : null}
-			</div>
-		</article>
-	);
+            {/* UNTEN: Statistiken & Button */}
+            <div className="trackcard__footer">
+                <div className="trackcard__stats">
+                    <div className="stat-item">
+                        <span>⭐</span> 
+                        <strong>{(track.avgRating ?? 0).toFixed(1)}</strong> 
+                        <span style={{color: '#999'}}>/ 5.0</span>
+                    </div>
+                    <div className="stat-item">
+                        <span>⏱️</span> 
+                        {track.times?.length ?? 0} Zeiten
+                    </div>
+                </div>
+                
+                <a className="btn" href={`/tracks/${track.id}`}>
+                    Details ansehen
+                </a>
+            </div>
+        </article>
+    );
 }
-

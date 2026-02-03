@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./add-product.css";
 
 // Definiere die verfügbaren Kategorien
 const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
+
+
 
 export default function AddProduct() {
   const [name, setName] = useState("");
@@ -11,6 +14,15 @@ export default function AddProduct() {
   const [category, setCategory] = useState(CATEGORIES[0]); // Standardwert
   const [message, setMessage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
+
+useEffect(() => {
+  const role = localStorage.getItem("role");
+  if (role !== "admin") {
+    navigate("/login");
+  }
+}, []);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,29 +35,24 @@ export default function AddProduct() {
       image: imageUrl,
     };
 
-    try {
-      const response = await fetch("http://localhost:3000/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-role": "admin",
-        },
-        body: JSON.stringify(newProduct),
-      });
+    const token = localStorage.getItem("sessionToken");
 
-      if (response.ok) {
-        setMessage(`Erfolg: Produkt in '${category}' gespeichert!`);
-        setName("");
-        setDescription("");
-        setPrice("");
-        setImageUrl("");
-        setCategory(CATEGORIES[0]);
-      } else {
-        setMessage("Fehler: Nur Admins dürfen das.");
-      }
-    } catch {
-      setMessage("Server nicht erreichbar.");
+    const response = await fetch("http://localhost:3000/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-session-token": token ?? "",
+      },
+      body: JSON.stringify(newProduct),
+    });
+
+
+    if (response.status === 401) {
+      setMessage("Nicht erlaubt: Bitte als Admin anmelden.");
+    } else {
+      setMessage("Fehler beim Speichern.");
     }
+
   };
 
   return (

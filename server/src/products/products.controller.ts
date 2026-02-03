@@ -2,13 +2,13 @@ import { Controller, Get, Post, Body, HttpCode, HttpStatus, Delete, Param } from
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UseGuards } from '@nestjs/common';
-import { RolesGuard } from './roles.guard';
+import { RolesGuard } from '../auth/roles.guard';
 
 @Controller('products')
 @UseGuards(RolesGuard)
 export class ProductsController {
 
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(private readonly productsService: ProductsService) { }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
@@ -23,7 +23,7 @@ export class ProductsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-  return this.productsService.delete(id);
-}
+    return this.productsService.delete(id);
+  }
 
 }

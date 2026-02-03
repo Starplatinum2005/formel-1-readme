@@ -39,7 +39,7 @@
     "id": "1ea79ea9-56c8-4735-a92a-3234bcec2863",
     "name": "Fahrer-Rennanzug",
     "description": "Mehrlagiges Spezialgewebe",
-    "price": 99.00,
+    "price": 99,
     "createdAt": "2026-01-09T15:14:22.669Z",
     "image": "/rennanzug.jpg",
     "category": "Ausrüstung"
@@ -48,7 +48,7 @@
     "id": "3871872a-3cb9-4804-972b-0ae3645b98f3",
     "name": "Full-Face Rennhelm",
     "description": "Kratzfestes Visier, Polsterung herausnehmbar",
-    "price": 75.00,
+    "price": 75,
     "createdAt": "2026-01-09T15:14:23.935Z",
     "image": "/rennhelm.jpg",
     "category": "Ausrüstung"
@@ -57,7 +57,7 @@
     "id": "f013f3b4-946d-4733-a87d-177ac2ee9c40",
     "name": "Mechaniker-Werkzeugset",
     "description": "Drehmomentschlüssel, Ratschen-Set, Präzisions-Schraubendreher",
-    "price": 49.00,
+    "price": 49,
     "createdAt": "2026-01-09T15:14:25.158Z",
     "image": "/werkzeugset.jpg",
     "category": "Ausrüstung"
@@ -88,5 +88,94 @@
     "createdAt": "2026-01-09T15:14:27.609Z",
     "image": "/basecap.jpg",
     "category": "Merchandise"
+  },
+  {
+    "id": "0a8aef42-92d6-4dd1-8021-f1219465fa93",
+    "name": "Stefan",
+    "description": "dicken eier",
+    "price": 10000000,
+    "category": "Hardware",
+    "image": "https://www.ok-magazin.de/images/4x3/2022-09/stefanie-giesinger-guckt-ernst-auf-dem-red-carpet.jpg?h=1c479c7c",
+    "createdAt": "2026-01-30T09:54:34.644Z"
+  },
+  {
+    "id": "ade333d7-0ecb-476e-8b25-532e5ce9b80e",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T15:43:52.018Z"
+  },
+  {
+    "id": "4452d9ba-33a3-4bab-9dfa-b23cfa105461",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:19:50.546Z"
+  },
+  {
+    "id": "1ee27b0c-bdad-43e1-8a0e-26f1f13e9371",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:22:33.142Z"
+  },
+  {
+    "id": "8048a97c-4491-42de-8885-2c4b6c4f8985",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:22:42.060Z"
+  },
+  {
+    "id": "112b8de3-5cae-4c42-b836-078e5f3b6962",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:22:43.255Z"
+  },
+  {
+    "id": "e601c5a8-1bdc-4f7b-bf50-34a2b055738b",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:22:46.520Z"
+  },
+  {
+    "id": "10fcf60b-dea3-4bd3-b532-f17155392eaa",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:23:00.461Z"
+  },
+  {
+    "id": "c81f4a60-67cd-4987-a600-bfe183e73610",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:38:15.312Z"
+  },
+  {
+    "id": "52b0527f-52d4-443f-8f3a-dd004f184c56",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:52:13.337Z"
+  },
+  {
+    "id": "5a3b4a6b-d9d8-4bf0-b87d-b3ad37d9514f",
+    "createdAt": "2026-01-30T16:54:33.011Z"
+  },
+  {
+    "id": "bb51f37b-9263-4cd4-b8a1-8e680dcff26d",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T16:55:35.062Z"
+  },
+  {
+    "id": "b5eb3333-9eb5-4309-a434-97de5ec69872",
+    "name": "Test Produkt",
+    "price": 19.99,
+    "createdAt": "2026-01-30T16:56:10.050Z"
+  },
+  {
+    "id": "5abfc896-f289-4c92-8854-4b3db0354b85",
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "createdAt": "2026-01-30T17:44:53.286Z"
+  },
+  {
+    "id": "63970679-9a4d-4e06-a8e2-0867603fd34e",
+    "createdAt": "2026-01-30T17:45:15.788Z"
   }
 ]
