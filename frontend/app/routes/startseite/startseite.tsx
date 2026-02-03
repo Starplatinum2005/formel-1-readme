@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import "./startseite.css";
+import { formatDate } from "~/utils/format";
+import { clamp } from "~/utils/format";
+import { Stars } from "~/components/stars";
+import Stats from "~/components/stats";
+import type { Statst } from "~/components/stats";
 
 type NewsItem = {
   id: string;
@@ -26,39 +31,11 @@ type ProductCard = {
   badge?: "New" | "Bestseller" | "Limited";
 };
 
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString("de-DE", { year: "numeric", month: "short", day: "2-digit" });
-}
-
-function clamp(n: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, n));
-}
-
-function Stars({ value }: { value: number }) {
-  const v = clamp(value, 0, 5);
-  const full = Math.floor(v);
-  const half = v - full >= 0.5 ? 1 : 0;
-  const empty = 5 - full - half;
-
-  const star = (fill: "full" | "half" | "empty", i: number) => {
-    const title = fill === "full" ? "voll" : fill === "half" ? "halb" : "leer";
-    return (
-      <span key={`${fill}-${i}`} aria-label={title} className={`star star--${fill}`}>
-        ★
-      </span>
-    );
-  };
-
-  return (
-    <span className="stars" aria-label={`${v.toFixed(1)} von 5 Sternen`}>
-      {Array.from({ length: full }).map((_, i) => star("full", i))}
-      {half ? star("half", 0) : null}
-      {Array.from({ length: empty }).map((_, i) => star("empty", i))}
-      <span className="stars__value">{v.toFixed(1)}</span>
-    </span>
-  );
-}
+const Stats_data: Statst[] = [
+  { value: "3.2k", label: "Community Reviews" },
+  { value: "148", label: "Track Profiles" },
+  { value: "24h", label: "Moderation SLA" },
+];
 
 export default function HomePage() {
   // Demo-Daten: später durch API ersetzen
@@ -171,18 +148,7 @@ export default function HomePage() {
               </div>
 
               <div className="stats" role="list" aria-label="Plattform Kennzahlen (Demo)">
-                <div className="stat" role="listitem">
-                  <div className="stat__num">3.2k</div>
-                  <div className="stat__label">Community Reviews</div>
-                </div>
-                <div className="stat" role="listitem">
-                  <div className="stat__num">148</div>
-                  <div className="stat__label">Track Profiles</div>
-                </div>
-                <div className="stat" role="listitem">
-                  <div className="stat__num">24h</div>
-                  <div className="stat__label">Moderation SLA</div>
-                </div>
+                <Stats items={Stats_data} />
               </div>
             </div>
 
