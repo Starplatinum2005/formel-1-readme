@@ -238,7 +238,6 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid--shop">
-            {/* 3. HIER wird über die echten Daten iteriert */}
             {featuredProducts.map((p) => (
               <article key={p.id} className="card card--dark">
                 <div className="product__top">
@@ -262,8 +261,7 @@ export default function HomePage() {
           </div>
           </div>
         </section>
-
-        {/* CTA */}
+        
         <section className="section">
           <div className="container cta">
             <div>
