@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router";
 import { useEffect, useMemo, useState } from "react";
 import "./startseite.css";
 import { formatDate } from "~/utils/format";
@@ -6,7 +7,9 @@ import { Stars } from "~/components/stars";
 import Stats from "~/components/stats";
 import type { Statst } from "~/components/stats";
 import type { NewsItem, TrackCard, ProductCard } from "~/types";
+import { loader } from "~/utils/loader";
 
+export { loader };
 
 const Stats_data: Statst[] = [
   { value: "3.2k", label: "Community Reviews" },
@@ -15,6 +18,9 @@ const Stats_data: Statst[] = [
 ];
 
 export default function HomePage() {
+
+  const { featuredProducts } = useLoaderData<typeof loader>();
+
   // Demo-Daten: später durch API ersetzen
   const mockNews: NewsItem[] = useMemo(
     () => [
@@ -62,15 +68,6 @@ export default function HomePage() {
       { id: "t1", name: "Redstone Raceway", country: "DE", difficulty: "Medium", avgRating: 4.4, totalReviews: 128 },
       { id: "t2", name: "Coastal Sprint Circuit", country: "IT", difficulty: "Hard", avgRating: 4.7, totalReviews: 92 },
       { id: "t3", name: "Nord Crest Park", country: "GB", difficulty: "Easy", avgRating: 4.1, totalReviews: 210 },
-    ],
-    []
-  );
-
-  const mockFeaturedProducts: ProductCard[] = useMemo(
-    () => [
-      { id: "p1", name: "Apex Tracks Cap (Black/Red)", priceEUR: 24.9, badge: "Bestseller" },
-      { id: "p2", name: "Gridline Hoodie (Black)", priceEUR: 59.0, badge: "New" },
-      { id: "p3", name: "Track Sticker Pack", priceEUR: 6.5 },
     ],
     []
   );
@@ -241,27 +238,28 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid--shop">
-              {mockFeaturedProducts.map((p) => (
-                <article key={p.id} className="card card--dark">
-                  <div className="product__top">
-                    <div className="product__name">{p.name}</div>
-                    {p.badge ? <span className="badge badge--hot">{p.badge}</span> : null}
-                  </div>
-                  <div className="product__price">{p.priceEUR.toFixed(2)} €</div>
-                  <div className="product__actions">
-                    <a className="btn btn--primary" href={`/shop/products/${p.id}`}>
-                      Details
-                    </a>
-                    <a className="btn btn--secondary" href={`/shop/cart?add=${encodeURIComponent(p.id)}`}>
-                      In den Warenkorb
-                    </a>
-                  </div>
-                  <p className="muted small">
-                    (MVP-Hinweis) Orders mit Status: <code>CREATED → PAID → SHIPPED</code>
-                  </p>
-                </article>
-              ))}
-            </div>
+            {/* 3. HIER wird über die echten Daten iteriert */}
+            {featuredProducts.map((p) => (
+              <article key={p.id} className="card card--dark">
+                <div className="product__top">
+                  <div className="product__name">{p.name}</div>
+                  {p.badge ? <span className="badge badge--hot">{p.badge}</span> : null}
+                </div>
+                <div className="product__price">{p.priceEUR.toFixed(2)} €</div>
+                <div className="product__actions">
+                  <a className="btn btn--primary" href={`/shop/products/${p.id}`}>
+                    Details
+                  </a>
+                  <a className="btn btn--secondary" href={`/shop/cart?add=${encodeURIComponent(p.id)}`}>
+                    In den Warenkorb
+                  </a>
+                </div>
+                <p className="muted small">
+                  (MVP-Hinweis) Orders mit Status: <code>CREATED → PAID → SHIPPED</code>
+                </p>
+              </article>
+            ))}
+          </div>
           </div>
         </section>
 
