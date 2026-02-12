@@ -5,31 +5,8 @@ import { clamp } from "~/utils/format";
 import { Stars } from "~/components/stars";
 import Stats from "~/components/stats";
 import type { Statst } from "~/components/stats";
+import type { NewsItem, TrackCard, ProductCard } from "~/types";
 
-type NewsItem = {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: "Platform" | "Tracks" | "Community" | "Shop";
-  publishedAt: string; // ISO
-  readingTimeMin: number;
-};
-
-type TrackCard = {
-  id: string;
-  name: string;
-  country: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  avgRating: number; // 0..5
-  totalReviews: number;
-};
-
-type ProductCard = {
-  id: string;
-  name: string;
-  priceEUR: number;
-  badge?: "New" | "Bestseller" | "Limited";
-};
 
 const Stats_data: Statst[] = [
   { value: "3.2k", label: "Community Reviews" },
