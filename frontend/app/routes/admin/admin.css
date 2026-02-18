@@ -1,0 +1,108 @@
+/* Hintergrundbereich */
+.admin-wrapper {
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  background: radial-gradient(circle at top, #1b1b1b, #0b0b0b);
+  color: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Container */
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Titel */
+.admin-title {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: #e10600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.admin-subtitle {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+/* Karten */
+.admin-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(180deg, #151515, #0d0d0d);
+  border: 1px solid #262626;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+/* Hover Effekt */
+.admin-card:hover:not(:disabled) {
+  transform: translateY(-4px);
+  border-color: #e10600;
+  box-shadow: 0 8px 25px rgba(227, 6, 19, 0.35);
+}
+
+/* Primäre Aktion (Produkt hinzufügen) */
+.admin-card.primary {
+  border-color: #e10600;
+}
+
+.admin-card.primary:hover {
+  background: linear-gradient(180deg, #1f0a0a, #120404);
+}
+
+/* Icons */
+.admin-card-icon {
+  font-size: 2rem;
+  width: 48px;
+  text-align: center;
+}
+
+/* Textbereich */
+.admin-card-content h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.admin-card-content p {
+  margin: 4px 0 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Disabled Buttons */
+button.admin-card:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Zurück-Link */
+.admin-back {
+  display: inline-block;
+  margin-top: 30px;
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.admin-back:hover {
+  color: #fff;
+}
