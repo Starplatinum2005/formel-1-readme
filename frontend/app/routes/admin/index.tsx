@@ -24,7 +24,7 @@ export default function AdminPage() {
             <div className="admin-card-icon">🗑️</div>
             <div className="admin-card-content">
               <h2>Produkt löschen</h2>
-              <p>Kommt später</p>
+              <p>Produkt im Shop löschen</p>
             </div>
           </Link>
 
