@@ -20,13 +20,13 @@ export default function AdminPage() {
             </div>
           </Link>
 
-          <button className="admin-card" disabled>
+          <Link className="admin-card" to="/admin/delete-product">
             <div className="admin-card-icon">🗑️</div>
             <div className="admin-card-content">
               <h2>Produkt löschen</h2>
               <p>Kommt später</p>
             </div>
-          </button>
+          </Link>
 
           <button className="admin-card" disabled>
             <div className="admin-card-icon">🏁</div>

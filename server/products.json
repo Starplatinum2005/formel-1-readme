@@ -90,15 +90,6 @@
     "category": "Merchandise"
   },
   {
-    "id": "0a8aef42-92d6-4dd1-8021-f1219465fa93",
-    "name": "Stefan",
-    "description": "dicken eier",
-    "price": 10000000,
-    "category": "Hardware",
-    "image": "https://www.ok-magazin.de/images/4x3/2022-09/stefanie-giesinger-guckt-ernst-auf-dem-red-carpet.jpg?h=1c479c7c",
-    "createdAt": "2026-01-30T09:54:34.644Z"
-  },
-  {
     "id": "ade333d7-0ecb-476e-8b25-532e5ce9b80e",
     "email": "admin@apex.local",
     "password": "Admin123!",
@@ -177,14 +168,5 @@
   {
     "id": "63970679-9a4d-4e06-a8e2-0867603fd34e",
     "createdAt": "2026-01-30T17:45:15.788Z"
-  },
-  {
-    "id": "991eb6e9-f2ee-4992-b0f7-7dd96df7e2f8",
-    "name": "gsga",
-    "description": "ega",
-    "price": 25,
-    "category": "Ausrüstung",
-    "image": "",
-    "createdAt": "2026-02-18T21:44:25.965Z"
   }
 ]

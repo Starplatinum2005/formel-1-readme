@@ -1,14 +1,22 @@
-import { Controller, Get, Post, Body, HttpCode, HttpStatus, Delete, Param } from '@nestjs/common';
-import { ProductsService } from './products.service';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UseGuards } from '@nestjs/common';
-import { RolesGuard } from '../auth/roles.guard';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  HttpCode,
+  HttpStatus,
+  Delete,
+  Param,
+  UseGuards,
+} from "@nestjs/common";
+import { ProductsService } from "./products.service";
+import { CreateProductDto } from "./dto/create-product.dto";
+import { RolesGuard } from "../auth/roles.guard";
 
-@Controller('products')
+@Controller("products")
 @UseGuards(RolesGuard)
 export class ProductsController {
-
-  constructor(private readonly productsService: ProductsService) { }
+  constructor(private readonly productsService: ProductsService) {}
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
@@ -21,9 +29,10 @@ export class ProductsController {
     return this.productsService.findAll();
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  @HttpCode(HttpStatus.OK)
+  remove(@Param("id") id: string) {
+    // wirft NotFoundException, wenn nicht vorhanden -> 404
     return this.productsService.delete(id);
   }
-
 }

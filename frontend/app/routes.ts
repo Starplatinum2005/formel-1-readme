@@ -6,6 +6,7 @@ export default [
 
   route("admin", "routes/admin/index.tsx"),
   route("admin/add-product", "routes/admin/add-product.tsx"),
+  route("admin/delete-product", "routes/admin/delete-product.tsx"),
 
   route("tracks", "routes/Bahnen/bahnen.tsx"),
   route("tracks/:id", "routes/Bahnen/track.tsx"),
