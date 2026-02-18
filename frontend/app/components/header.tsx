@@ -27,7 +27,7 @@ export default function Header(){
             <a className="nav__link" href="/shop">
               Shop
             </a>
-            <a className="nav__link nav__link--ghost" href="/auth/login">
+            <a className="nav__link nav__link--ghost" href="/login">
               Login
             </a>
             <a className="nav__link nav__link--cta" href="/auth/register">

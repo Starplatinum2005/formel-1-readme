@@ -20,13 +20,26 @@ export default function ShopPage() {
   const [error, setError] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(() => {
-    // Sicherstellen, dass localStorage nur im Browser aufgerufen wird
-    if (typeof window !== "undefined") {
-      const role = localStorage.getItem('userRole');
-      setIsAdmin(role === 'admin');
-    }
-  }, []);
+useEffect(() => {
+  // localStorage gibt es nur im Browser
+  if (typeof window === "undefined") return;
+
+  const token = localStorage.getItem("sessionToken");
+  if (!token) {
+    setIsAdmin(false);
+    return;
+  }
+
+  fetch("http://localhost:3000/auth/me", {
+    headers: { "x-session-token": token },
+  })
+    .then((res) => (res.ok ? res.json() : null))
+    .then((data) => {
+      setIsAdmin(data?.role === "admin");
+    })
+    .catch(() => setIsAdmin(false));
+}, []);
+
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
@@ -42,12 +55,12 @@ export default function ShopPage() {
     <div className="shop-container">
       <div className="shop-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1>Apex League Shop</h1>
-        
+
         {/* Wir nutzen window.location für die Navigation, das ist robuster gegen Hook-Fehler */}
         {isAdmin && (
-          <button 
-            className="admin-add-btn" 
-            onClick={() => window.location.href = '/add-products'}
+          <button
+            className="admin-add-btn"
+            onClick={() => window.location.href = '/admin/add-product'}
             style={{ backgroundColor: '#e10600', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer', fontWeight: 'bold' }}
           >
             ➕ Produkt hinzufügen

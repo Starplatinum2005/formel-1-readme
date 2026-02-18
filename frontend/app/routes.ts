@@ -6,5 +6,6 @@ export default [
     route("admin/add-product", "routes/admin/add-product.tsx"),
     route("tracks", "routes/Bahnen/bahnen.tsx"),
     route("tracks/:id", "routes/Bahnen/track.tsx"),
-    
+    route("login", "routes/login/login.tsx"),
+
 ] satisfies RouteConfig;

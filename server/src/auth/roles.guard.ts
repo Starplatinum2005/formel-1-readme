@@ -1,28 +1,35 @@
-import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  UnauthorizedException,
+  ForbiddenException,
+} from '@nestjs/common';
 import { SessionStore } from './session.store';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(private sessionStore: SessionStore) {}
+  constructor(private readonly sessionStore: SessionStore) {}
 
   canActivate(context: ExecutionContext): boolean {
     const req = context.switchToHttp().getRequest();
-    const token = req.headers['x-session-token'] as string | undefined;
 
-    // GET ist öffentlich
+    // Produkte ansehen darf jeder
     if (req.method === 'GET') return true;
 
-    // Schreibende Requests brauchen Session
-    if (!token) throw new UnauthorizedException('Nicht angemeldet');
+    const token = req.headers['x-session-token'];
+    if (!token) {
+      throw new UnauthorizedException('Nicht eingeloggt');
+    }
 
     const session = this.sessionStore.get(token);
-    if (!session) throw new UnauthorizedException('Session ungültig/abgelaufen');
+    if (!session) {
+      throw new UnauthorizedException('Session abgelaufen');
+    }
 
-    // Nur Admin darf schreiben (POST/DELETE – ggf. PUT/PATCH ergänzen)
-    if (req.method === 'POST' || req.method === 'DELETE') {
-      if (session.role !== 'admin') {
-        throw new UnauthorizedException('Nur Admins dürfen Produkte verändern!');
-      }
+    // Nur Admin darf Produkte verändern
+    if (session.role !== 'admin') {
+      throw new ForbiddenException('Nur Admins erlaubt');
     }
 
     return true;

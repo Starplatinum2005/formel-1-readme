@@ -26,11 +26,11 @@ export default function LoginPage() {
 
       if (response.ok) {
         // Diese Daten braucht deine Shop-Seite
-        localStorage.setItem("sessionToken", data.token);
-        localStorage.setItem("userRole", data.role);
-        
+        localStorage.setItem('sessionToken', data.token);
+
+
         // Erfolg melden und zum Shop springen
-        window.location.href = "/shop"; 
+        window.location.href = "/shop";
       } else {
         setError(data.message || "Login fehlgeschlagen. Daten prüfen!");
       }
@@ -42,25 +42,25 @@ export default function LoginPage() {
   if (!isClient) return null;
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      height: '100vh', 
-      backgroundColor: '#121212', 
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#121212',
       color: 'white',
       fontFamily: 'sans-serif'
     }}>
-      <div style={{ 
-        padding: '40px', 
-        backgroundColor: '#1e1e1e', 
-        borderRadius: '12px', 
+      <div style={{
+        padding: '40px',
+        backgroundColor: '#1e1e1e',
+        borderRadius: '12px',
         boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
         width: '100%',
         maxWidth: '400px'
       }}>
         <h1 style={{ textAlign: 'center', color: '#e10600' }}>Apex Login</h1>
-        
+
         {error && (
           <div style={{ backgroundColor: 'rgba(255,0,0,0.1)', color: 'red', padding: '10px', borderRadius: '4px', marginBottom: '20px', textAlign: 'center' }}>
             {error}
@@ -70,34 +70,34 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div>
             <label style={{ display: 'block', marginBottom: '8px' }}>E-Mail Adresse</label>
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               style={{ width: '100%', padding: '12px', borderRadius: '6px', border: '1px solid #333', backgroundColor: '#2a2a2a', color: 'white' }}
             />
           </div>
           <div>
             <label style={{ display: 'block', marginBottom: '8px' }}>Passwort</label>
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              required 
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
               style={{ width: '100%', padding: '12px', borderRadius: '6px', border: '1px solid #333', backgroundColor: '#2a2a2a', color: 'white' }}
             />
           </div>
-          <button 
-            type="submit" 
-            style={{ 
-              width: '100%', 
-              padding: '14px', 
-              backgroundColor: '#e10600', 
-              color: 'white', 
-              border: 'none', 
-              borderRadius: '6px', 
-              fontWeight: 'bold', 
+          <button
+            type="submit"
+            style={{
+              width: '100%',
+              padding: '14px',
+              backgroundColor: '#e10600',
+              color: 'white',
+              border: 'none',
+              borderRadius: '6px',
+              fontWeight: 'bold',
               cursor: 'pointer',
               fontSize: '16px'
             }}
