@@ -1,115 +1,96 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./add-product.css";
+import { useState } from "react";
+import "./add-product.css"; // Wir nutzen die vorhandenen Styles
 
-// Definiere die verfügbaren Kategorien
 const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
 
-
-
-export default function AddProduct() {
+export default function AddProductPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState(CATEGORIES[0]); // Standardwert
-  const [message, setMessage] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const navigate = useNavigate();
-
-useEffect(() => {
-  const role = localStorage.getItem("role");
-  if (role !== "admin") {
-    navigate("/login");
-  }
-}, []);
-
+  const [category, setCategory] = useState(CATEGORIES[0]);
+  const [image, setImage] = useState("");
+  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setMessage(null);
 
-    const newProduct = {
-      name,
-      description,
-      price: parseFloat(price),
-      category,
-      image: imageUrl,
-    };
+    const token = localStorage.getItem('sessionToken');
 
-    const token = localStorage.getItem("sessionToken");
+    try {
+      const response = await fetch("http://localhost:3000/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-session-token": token || "" // Das Backend prüft dies im RolesGuard
+        },
+        body: JSON.stringify({
+          name,
+          description,
+          price: Number(price),
+          category,
+          image
+        }),
+      });
 
-    const response = await fetch("http://localhost:3000/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-session-token": token ?? "",
-      },
-      body: JSON.stringify(newProduct),
-    });
-
-
-    if (response.status === 401) {
-      setMessage("Nicht erlaubt: Bitte als Admin anmelden.");
-    } else {
-      setMessage("Fehler beim Speichern.");
+      if (response.ok) {
+        setMessage({ type: 'success', text: 'Produkt erfolgreich hinzugefügt!' });
+        // Felder leeren
+        setName("");
+        setDescription("");
+        setPrice("");
+        setImage("");
+      } else {
+        const data = await response.json();
+        setMessage({ type: 'error', text: data.message || 'Fehler beim Speichern' });
+      }
+    } catch (err) {
+      setMessage({ type: 'error', text: 'Server nicht erreichbar' });
     }
-
   };
 
   return (
-    <div className="admin-container">
-      <h1>Admin · Produkt hinzufügen</h1>
+    <div className="shop-container">
+      <h1>Neues Produkt hinzufügen</h1>
+      
+      <form onSubmit={handleSubmit} style={{ maxWidth: '500px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        {message && (
+          <p style={{ color: message.type === 'success' ? 'green' : 'red', fontWeight: 'bold' }}>
+            {message.text}
+          </p>
+        )}
 
-      <form className="admin-form" onSubmit={handleSubmit}>
-        <input
-          placeholder="Produktname"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+        <label>Produktname:
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required style={{ width: '100%' }} />
+        </label>
 
-        <textarea
-          placeholder="Beschreibung"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
+        <label>Beschreibung:
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required style={{ width: '100%' }} />
+        </label>
 
-        <input
-          type="number"
-          step="0.01"
-          placeholder="Preis (€)"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
+        <label>Preis:
+          <input type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} required style={{ width: '100%' }} />
+        </label>
 
-        <input
-          placeholder="Bild-URL (z.B. https://...)"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
-
-        {/* Neues Dropdown-Menü für Kategorien */}
-        <div className="category-select-wrapper">
-          <label htmlFor="category">Kategorie:</label>
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="admin-select"
-          >
-            {CATEGORIES.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
+        <label>Kategorie:
+          <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ width: '100%' }}>
+            {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
           </select>
+        </label>
+
+        <label>Bild-URL (optional):
+          <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder="https://..." style={{ width: '100%' }} />
+        </label>
+
+        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+          <button type="submit" style={{ backgroundColor: '#e10600', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer' }}>
+            Produkt Speichern
+          </button>
+          <button type="button" onClick={() => window.location.href = '/shop'} style={{ background: 'none', border: '1px solid gray', padding: '10px 20px', cursor: 'pointer' }}>
+            Zurück zum Shop
+          </button>
         </div>
-
-        <button type="submit">Produkt speichern</button>
       </form>
-
-      {message && <p className="admin-message">{message}</p>}
     </div>
   );
 }
