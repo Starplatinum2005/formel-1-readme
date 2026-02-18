@@ -1,0 +1,44 @@
+.stars { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 4px; 
+}
+
+
+.star { 
+  font-size: 14px; 
+  opacity: .35; 
+}
+
+
+.star--full { 
+  opacity: 1; 
+  color: var(--white); /* WICHTIG: Prüfen ob --white definiert ist */
+}
+
+
+.star--half { 
+  opacity: 1; 
+  color: var(--white); 
+  position: relative; 
+}
+
+.star--half::after {
+  content: "★";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: var(--red2); /* Die Farbe für den halben Stern */
+}
+
+.star--empty { 
+  opacity: .18; 
+}
+
+.stars__value { 
+  font-size: 12px; 
+  color: var(--muted); 
+  margin-left: 6px; 
+}

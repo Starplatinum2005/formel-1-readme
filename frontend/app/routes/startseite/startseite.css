@@ -96,16 +96,6 @@ code{
 .btn--tiny{ padding:10px 12px; border-radius:14px; font-size:13px; }
 .btn--ghost{ background:transparent; }
 
-.stats{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
-.stat{
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:16px;
-  background:rgba(255,255,255,.02);
-}
-.stat__num{ font-weight:900; letter-spacing:-.3px; font-size:18px; }
-.stat__label{ color:var(--muted); font-size:12px; margin-top:2px; }
-
 .hero__panel{ position:relative; }
 .panel{
   position:relative;
@@ -166,22 +156,6 @@ code{
 }
 .trackcard__open{ color: rgba(255,255,255,.88); font-weight:800; }
 .trackcard__open:hover{ color:white; }
-
-.stars{ display:inline-flex; align-items:center; gap:4px; }
-.star{ font-size:14px; opacity:.35; }
-.star--full{ opacity:1; color: var(--white); }
-.star--half{ opacity:1; color: var(--white); position:relative; }
-.star--half::after{
-  content:"★";
-  position:absolute;
-  left:0;
-  top:0;
-  width:50%;
-  overflow:hidden;
-  color: var(--red2);
-}
-.star--empty{ opacity:.18; }
-.stars__value{ font-size:12px; color: var(--muted); margin-left:6px; }
 
 .panel__footer{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
 

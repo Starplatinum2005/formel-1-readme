@@ -1,66 +1,26 @@
+import { useLoaderData } from "react-router";
 import { useEffect, useMemo, useState } from "react";
 import "./startseite.css";
+import { formatDate } from "~/utils/format";
+import { clamp } from "~/utils/format";
+import { Stars } from "~/components/stars";
+import Stats from "~/components/stats";
+import type { Statst } from "~/components/stats";
+import type { NewsItem, TrackCard, ProductCard } from "~/types";
+import { loader } from "~/utils/loader";
 
-type NewsItem = {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: "Platform" | "Tracks" | "Community" | "Shop";
-  publishedAt: string; // ISO
-  readingTimeMin: number;
-};
+export { loader };
 
-type TrackCard = {
-  id: string;
-  name: string;
-  country: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  avgRating: number; // 0..5
-  totalReviews: number;
-};
-
-type ProductCard = {
-  id: string;
-  name: string;
-  priceEUR: number;
-  badge?: "New" | "Bestseller" | "Limited";
-};
-
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString("de-DE", { year: "numeric", month: "short", day: "2-digit" });
-}
-
-function clamp(n: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, n));
-}
-
-function Stars({ value }: { value: number }) {
-  const v = clamp(value, 0, 5);
-  const full = Math.floor(v);
-  const half = v - full >= 0.5 ? 1 : 0;
-  const empty = 5 - full - half;
-
-  const star = (fill: "full" | "half" | "empty", i: number) => {
-    const title = fill === "full" ? "voll" : fill === "half" ? "halb" : "leer";
-    return (
-      <span key={`${fill}-${i}`} aria-label={title} className={`star star--${fill}`}>
-        ★
-      </span>
-    );
-  };
-
-  return (
-    <span className="stars" aria-label={`${v.toFixed(1)} von 5 Sternen`}>
-      {Array.from({ length: full }).map((_, i) => star("full", i))}
-      {half ? star("half", 0) : null}
-      {Array.from({ length: empty }).map((_, i) => star("empty", i))}
-      <span className="stars__value">{v.toFixed(1)}</span>
-    </span>
-  );
-}
+const Stats_data: Statst[] = [
+  { value: "3.2k", label: "Community Reviews" },
+  { value: "148", label: "Track Profiles" },
+  { value: "24h", label: "Moderation SLA" },
+];
 
 export default function HomePage() {
+
+  const { featuredProducts } = useLoaderData<typeof loader>();
+
   // Demo-Daten: später durch API ersetzen
   const mockNews: NewsItem[] = useMemo(
     () => [
@@ -108,15 +68,6 @@ export default function HomePage() {
       { id: "t1", name: "Redstone Raceway", country: "DE", difficulty: "Medium", avgRating: 4.4, totalReviews: 128 },
       { id: "t2", name: "Coastal Sprint Circuit", country: "IT", difficulty: "Hard", avgRating: 4.7, totalReviews: 92 },
       { id: "t3", name: "Nord Crest Park", country: "GB", difficulty: "Easy", avgRating: 4.1, totalReviews: 210 },
-    ],
-    []
-  );
-
-  const mockFeaturedProducts: ProductCard[] = useMemo(
-    () => [
-      { id: "p1", name: "Apex Tracks Cap (Black/Red)", priceEUR: 24.9, badge: "Bestseller" },
-      { id: "p2", name: "Gridline Hoodie (Black)", priceEUR: 59.0, badge: "New" },
-      { id: "p3", name: "Track Sticker Pack", priceEUR: 6.5 },
     ],
     []
   );
@@ -171,18 +122,7 @@ export default function HomePage() {
               </div>
 
               <div className="stats" role="list" aria-label="Plattform Kennzahlen (Demo)">
-                <div className="stat" role="listitem">
-                  <div className="stat__num">3.2k</div>
-                  <div className="stat__label">Community Reviews</div>
-                </div>
-                <div className="stat" role="listitem">
-                  <div className="stat__num">148</div>
-                  <div className="stat__label">Track Profiles</div>
-                </div>
-                <div className="stat" role="listitem">
-                  <div className="stat__num">24h</div>
-                  <div className="stat__label">Moderation SLA</div>
-                </div>
+                <Stats items={Stats_data} />
               </div>
             </div>
 
@@ -298,31 +238,30 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid--shop">
-              {mockFeaturedProducts.map((p) => (
-                <article key={p.id} className="card card--dark">
-                  <div className="product__top">
-                    <div className="product__name">{p.name}</div>
-                    {p.badge ? <span className="badge badge--hot">{p.badge}</span> : null}
-                  </div>
-                  <div className="product__price">{p.priceEUR.toFixed(2)} €</div>
-                  <div className="product__actions">
-                    <a className="btn btn--primary" href={`/shop/products/${p.id}`}>
-                      Details
-                    </a>
-                    <a className="btn btn--secondary" href={`/shop/cart?add=${encodeURIComponent(p.id)}`}>
-                      In den Warenkorb
-                    </a>
-                  </div>
-                  <p className="muted small">
-                    (MVP-Hinweis) Orders mit Status: <code>CREATED → PAID → SHIPPED</code>
-                  </p>
-                </article>
-              ))}
-            </div>
+            {featuredProducts.map((p) => (
+              <article key={p.id} className="card card--dark">
+                <div className="product__top">
+                  <div className="product__name">{p.name}</div>
+                  {p.badge ? <span className="badge badge--hot">{p.badge}</span> : null}
+                </div>
+                <div className="product__price">{p.priceEUR.toFixed(2)} €</div>
+                <div className="product__actions">
+                  <a className="btn btn--primary" href={`/shop/products/${p.id}`}>
+                    Details
+                  </a>
+                  <a className="btn btn--secondary" href={`/shop/cart?add=${encodeURIComponent(p.id)}`}>
+                    In den Warenkorb
+                  </a>
+                </div>
+                <p className="muted small">
+                  (MVP-Hinweis) Orders mit Status: <code>CREATED → PAID → SHIPPED</code>
+                </p>
+              </article>
+            ))}
+          </div>
           </div>
         </section>
-
-        {/* CTA */}
+        
         <section className="section">
           <div className="container cta">
             <div>

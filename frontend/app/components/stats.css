@@ -1,0 +1,25 @@
+.stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.stat {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .02);
+}
+
+.stat__num {
+  font-weight: 900;
+  letter-spacing: -.3px;
+  font-size: 18px;
+}
+
+.stat__label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}

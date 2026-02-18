@@ -1,20 +1,21 @@
 import React from "react";
-import "./header.css";
 import { Link } from "react-router";
+import "./header.css";
 
 
 export default function Header(){
     return(
         <header className="header">
         <div className="container header__inner">
-          <a href="/" className="brand">
-            {/*<div className="brand__mark" aria-hidden="true" />*/}
-            <img src="./../../public/logo1.png" alt="Logo" className="brand_logo" />
+          <div className="brand">
+            <Link to="/" className="brand">
+              <img src="/logo1.png" alt="Logo" className="brand_logo" />
+            </Link>
             <div className="brand__text">
               <div className="brand__name">Apex Tracks</div>
               <div className="brand__tag">Track Profiles • Reviews • Gear</div>
             </div>
-          </a>
+          </div>
 
           <nav className="nav" aria-label="Hauptnavigation">
             <a className="nav__link" href="/tracks">

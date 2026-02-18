@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./add-product.css"; // Wir nutzen die vorhandenen Styles
 
+
 const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
 
 export default function AddProductPage() {
