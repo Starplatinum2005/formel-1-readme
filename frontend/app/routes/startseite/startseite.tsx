@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router";
 import { useEffect, useMemo, useState } from "react";
 import "./startseite.css";
 import { formatDate } from "~/utils/format";
-import { clamp } from "~/utils/format";
 import { Stars } from "~/components/stars";
 import Stats from "~/components/stats";
 import type { Statst } from "~/components/stats";

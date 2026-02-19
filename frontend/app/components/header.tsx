@@ -18,15 +18,15 @@ export default function Header(){
           </div>
 
           <nav className="nav" aria-label="Hauptnavigation">
-            <a className="nav__link" href="/tracks">
+            <Link className="nav__link" to="/tracks">
               Tracks
-            </a>
+            </Link>
             <a className="nav__link" href="/news">
               News
             </a>
-            <a className="nav__link" href="/shop">
+            <Link className="nav__link" to="/shop">
               Shop
-            </a>
+            </Link>
             <a className="nav__link nav__link--ghost" href="/auth/login">
               Login
             </a>
