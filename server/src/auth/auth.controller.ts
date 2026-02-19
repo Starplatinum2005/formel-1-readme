@@ -15,7 +15,7 @@ export class AuthController {
   constructor(
     private readonly authService: AuthService,
     private readonly sessionStore: SessionStore
-  ) {}
+  ) { }
 
   @Post("register")
   register(@Body() dto: RegisterDto) {
@@ -31,9 +31,10 @@ export class AuthController {
   me(@Headers("x-session-token") token?: string) {
     if (!token) throw new UnauthorizedException("Nicht eingeloggt");
 
-    const session = this.sessionStore.get(token);
-    if (!session) throw new UnauthorizedException("Session ungültig");
+    const me = this.authService.getMe(token);
+    if (!me) throw new UnauthorizedException("Session ungültig");
 
-    return { email: session.email, role: session.role };
+    return me;
   }
+
 }

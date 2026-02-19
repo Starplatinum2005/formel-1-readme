@@ -97,6 +97,13 @@ export default function Header() {
               Logout
             </button>
           )}
+          
+          {isLoggedIn && (
+            <Link className="nav__link" to="/account">
+              Account
+            </Link>
+          )}
+
 
         </nav>
       </div>

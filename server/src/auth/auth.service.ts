@@ -98,4 +98,24 @@ export class AuthService {
 
         return { token, email: user.email, role: user.role };
     }
+    getMe(token: string) {
+        const session = this.sessionStore.get(token);
+        if (!session) return null;
+
+        const users = this.readUsers();
+        const user = users.find(
+            (u: any) => (u.email ?? "").toLowerCase() === session.email.toLowerCase()
+        );
+
+        if (!user) return null;
+
+        return {
+            email: user.email,
+            role: user.role,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            username: user.username,
+        };
+    }
+
 }
