@@ -12,4 +12,7 @@ export default [
   route("tracks/:id", "routes/Bahnen/track.tsx"),
 
   route("login", "routes/login/login.tsx"),
+
+  route("register", "routes/login/register.tsx"),
+
 ] satisfies RouteConfig;

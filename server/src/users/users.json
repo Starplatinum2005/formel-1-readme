@@ -1,0 +1,12 @@
+[
+  {
+    "email": "admin@apex.local",
+    "password": "Admin123!",
+    "role": "user"
+  },
+  {
+    "email": "test@test.com",
+    "password": "Admin123!",
+    "role": "user"
+  }
+]

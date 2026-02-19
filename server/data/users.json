@@ -1,8 +1,18 @@
 [
   {
-    "id": "admin-1",
-    "email": "admin@apex.local",
+    "firstName": "Admin",
+    "lastName": "ApexTracks",
+    "username": "admin",
+    "email": "admin@apex.de",
     "password": "Admin123!",
     "role": "admin"
+  },
+  {
+    "firstName": "Stefan",
+    "lastName": "Stanisic",
+    "username": "stefan",
+    "email": "x.y@xy",
+    "password": "Admin123!",
+    "role": "user"
   }
 ]

@@ -1,22 +1,19 @@
-import { Injectable } from '@nestjs/common';
-import { Role } from '../users/users.service';
+import { Injectable } from "@nestjs/common";
 
-export type SessionData = {
-  userId: string;
+export type Session = {
   email: string;
-  role: Role;
-  createdAt: number;
+  role: "admin" | "user";
 };
 
 @Injectable()
 export class SessionStore {
-  private sessions = new Map<string, SessionData>();
+  private readonly sessions = new Map<string, Session>();
 
-  create(token: string, data: SessionData) {
-    this.sessions.set(token, data);
+  set(token: string, session: Session) {
+    this.sessions.set(token, session);
   }
 
-  get(token: string): SessionData | undefined {
+  get(token: string): Session | undefined {
     return this.sessions.get(token);
   }
 
