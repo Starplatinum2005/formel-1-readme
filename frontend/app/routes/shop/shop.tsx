@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+// Wir entfernen useNavigate, um den Hook-Error zu vermeiden, 
+// falls die Routing-Umgebung noch nicht bereit ist.
 import { formatEuroDE } from "~/utils/format";
 import "./shop.css";
 
@@ -13,16 +15,31 @@ interface Product {
 
 const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
 
-
-
 export default function ShopPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
-  
-  useEffect(() => {
-    setIsAdmin(localStorage.getItem('role') === 'admin');
-  }, []);
+
+useEffect(() => {
+  // localStorage gibt es nur im Browser
+  if (typeof window === "undefined") return;
+
+  const token = localStorage.getItem("sessionToken");
+  if (!token) {
+    setIsAdmin(false);
+    return;
+  }
+
+  fetch("http://localhost:3000/auth/me", {
+    headers: { "x-session-token": token },
+  })
+    .then((res) => (res.ok ? res.json() : null))
+    .then((data) => {
+      setIsAdmin(data?.role === "admin");
+    })
+    .catch(() => setIsAdmin(false));
+}, []);
+
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
@@ -36,14 +53,25 @@ export default function ShopPage() {
 
   return (
     <div className="shop-container">
-      <h1>Apex League Shop</h1>
+      <div className="shop-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>Apex League Shop</h1>
+
+        {/* Wir nutzen window.location für die Navigation, das ist robuster gegen Hook-Fehler */}
+        {isAdmin && (
+          <button
+            className="admin-add-btn"
+            onClick={() => window.location.href = '/admin/add-product'}
+            style={{ backgroundColor: '#e10600', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer', fontWeight: 'bold' }}
+          >
+            ➕ Produkt hinzufügen
+          </button>
+        )}
+      </div>
 
       {error && <p className="error-msg">{error}</p>}
 
-      {/* Wir gehen jede Kategorie einzeln durch */}
       {CATEGORIES.map((cat) => {
         const categoryProducts = products.filter(p => p.category === cat);
-
         if (categoryProducts.length === 0) return null;
 
         return (
@@ -52,8 +80,6 @@ export default function ShopPage() {
             <div className="product-grid">
               {categoryProducts.map((product) => (
                 <div key={product.id} className="product-card">
-
-                  {/* --- BILD-BEREICH ANFANG --- */}
                   {product.image && (
                     <div className="product-image-container">
                       <img
@@ -64,8 +90,6 @@ export default function ShopPage() {
                       />
                     </div>
                   )}
-                  {/* --- BILD-BEREICH ENDE --- */}
-
                   <h3>{product.name}</h3>
                   <p>{product.description}</p>
                   <div className="price-tag">{formatEuroDE(product.price)}</div>
