@@ -10,6 +10,7 @@ export default function AddProductPage() {
   const [category, setCategory] = useState(CATEGORIES[0]);
   const [image, setImage] = useState("");
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [stock, setStock] = useState("1");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,6 +31,7 @@ export default function AddProductPage() {
           price: Number(price),
           category,
           image,
+          stock: Number(stock)
         }),
       });
 
@@ -45,7 +47,7 @@ export default function AddProductPage() {
         try {
           const data = await response.json();
           text = data?.message || text;
-        } catch {}
+        } catch { }
         setMessage({ type: "error", text });
       }
     } catch {
@@ -93,6 +95,17 @@ export default function AddProductPage() {
             required
           />
         </label>
+
+        <label>Lagerbestand:
+          <input
+            type="number"
+            min="0"
+            value={stock}
+            onChange={(e) => setStock(e.target.value)}
+            required
+          />
+        </label>
+
 
         <div className="category-select-wrapper">
           <label>Kategorie</label>

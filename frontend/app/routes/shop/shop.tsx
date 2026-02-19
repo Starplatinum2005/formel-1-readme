@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-// Wir entfernen useNavigate, um den Hook-Error zu vermeiden, 
-// falls die Routing-Umgebung noch nicht bereit ist.
 import { formatEuroDE } from "~/utils/format";
+import { addToCart, loadCart } from "~/utils/cart";
 import "./shop.css";
 
 interface Product {
@@ -11,6 +10,7 @@ interface Product {
   price: number;
   category: string;
   image?: string;
+  stock: number;
 }
 
 const CATEGORIES = ["Fahrzeuge", "Ausrüstung", "Merchandise", "Hardware"];
@@ -19,26 +19,42 @@ export default function ShopPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
-useEffect(() => {
-  // localStorage gibt es nur im Browser
-  if (typeof window === "undefined") return;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-  const token = localStorage.getItem("sessionToken");
-  if (!token) {
-    setIsAdmin(false);
-    return;
-  }
+    const update = () => {
+      const cart = loadCart();
+      const count = cart.reduce((sum, it) => sum + (it.quantity || 0), 0);
+      setCartCount(count);
+    };
 
-  fetch("http://localhost:3000/auth/me", {
-    headers: { "x-session-token": token },
-  })
-    .then((res) => (res.ok ? res.json() : null))
-    .then((data) => {
-      setIsAdmin(data?.role === "admin");
+    update();
+
+    // aktualisiert Count auch, wenn du später auf anderen Seiten änderst
+    window.addEventListener("storage", update);
+    return () => window.removeEventListener("storage", update);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const token = localStorage.getItem("sessionToken");
+    if (!token) {
+      setIsAdmin(false);
+      return;
+    }
+
+    fetch("http://localhost:3000/auth/me", {
+      headers: { "x-session-token": token },
     })
-    .catch(() => setIsAdmin(false));
-}, []);
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        setIsAdmin(data?.role === "admin");
+      })
+      .catch(() => setIsAdmin(false));
+  }, []);
 
 
   useEffect(() => {
@@ -93,7 +109,24 @@ useEffect(() => {
                   <h3>{product.name}</h3>
                   <p>{product.description}</p>
                   <div className="price-tag">{formatEuroDE(product.price)}</div>
-                  <button className="buy-button">In den Warenkorb</button>
+                  <div className={`stock-tag ${(product.stock ?? 0) <= 0 ? "out" : ""}`}>
+                    {(product.stock ?? 0) > 0 ? `Auf Lager: ${product.stock}` : "Ausverkauft"}
+                  </div>
+                  <button
+                    className="buy-button"
+                    disabled={(product.stock ?? 0) <= 0}
+                    onClick={() => {
+                      addToCart(product.id, product.stock ?? 0);
+                      const cart = loadCart();
+                      const count = cart.reduce((sum, it) => sum + (it.quantity || 0), 0);
+                      setCartCount(count);
+                    }}
+
+                  >
+                    {(product.stock ?? 0) > 0 ? "In den Warenkorb" : "Ausverkauft"}
+                  </button>
+
+
                 </div>
               ))}
             </div>
@@ -104,6 +137,11 @@ useEffect(() => {
       {products.length === 0 && !error && (
         <p className="no-products">Aktuell sind keine Produkte verfügbar.</p>
       )}
+      <a className="cart-fab" href="/cart" aria-label="Warenkorb">
+        🛒
+        {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+      </a>
+
     </div>
   );
 }

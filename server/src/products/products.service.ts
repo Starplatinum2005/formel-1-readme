@@ -29,9 +29,15 @@ export class ProductsService {
 
     const newProduct = {
       id: uuidv4(),
-      ...createProductDto,
+      name: createProductDto.name,
+      description: createProductDto.description,
+      price: Number(createProductDto.price),
+      category: createProductDto.category,
+      image: createProductDto.image ?? "",
+      stock: Number(createProductDto.stock ?? 0),
       createdAt: new Date().toISOString(),
     };
+
 
     products.push(newProduct);
     this.writeData(products);
