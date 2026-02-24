@@ -54,8 +54,28 @@ Das Projekt folgt einer modernen Client-Server-Architektur, vollständig typisie
     - **Passwort:** `User123!`
     - **Rolle:** `user`
 
-## 🔌 API Endpoints
-(Eine kurze Übersicht der wichtigsten Routen, z.B. `GET /products`, `POST /auth/login`...)
+## API Endpoints
+
+Hier ist eine Übersicht der wichtigsten REST-Routen, die unser Backend zur Verfügung stellt:
+
+### Authentifizierung (`/auth`)
+- `POST /auth/register` – Registriert einen neuen Benutzer.
+- `POST /auth/login` – Loggt einen Nutzer ein und erstellt eine Session (gibt Token zurück).
+- `GET /auth/me` – Überprüft das übergebene Session-Token und liefert die Nutzerdaten.
+
+### Produkte / Shop (`/products`)
+- `GET /products` – Ruft alle verfügbaren Produkte aus dem Katalog ab.
+- `POST /products` – Legt ein neues Produkt an (Adminrolle benötigt).
+- `DELETE /products/:id` – Löscht ein bestimmtes Produkt (Adminrolle benötigt).
+
+### Rennstrecken (`/tracks`)
+- `GET /tracks` – Ruft eine Liste aller Rennstrecken ab.
+- `GET /tracks/:id` – Ruft die detaillierten Informationen einer bestimmten Rennstrecke ab.
+- `POST /tracks/:id/rating` – Fügt einer Strecke eine neue Community-Bewertung hinzu.
+- `POST /tracks/:id/time` – Speichert eine neue Rundenzeit für eine Strecke.
+
+### Bestellungen (`/orders`)
+- `POST /orders/checkout` – Schließt den Warenkorb ab und sendet eine Bestellung ab.
 
 ## Projektstruktur
 
