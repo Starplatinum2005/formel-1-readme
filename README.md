@@ -4,7 +4,7 @@ Apex Tracks ist eine Webanwendung für Motorsport-Enthusiasten. Die Plattform ko
 ## Kern-Features
 
 - **Strecken (Tracks):** Durchsuchen von Rennstrecken, Ansehen von Details und Community-Bewertungen.
-- **Shop-System:** Voll funktionsfähiger Produktkatalog, Warenkorb-System und Checkout-Flow (Status: Created → Paid → Shipped).
+- **Shop-System:** Voll funktionsfähiger Produktkatalog, Warenkorb-System
 - **User-Accounts:** Registrierung, Login und Profilverwaltung.
 - **Admin-Dashboard:** Produkte hinzufügen, bearbeiten oder löschen.
 
